@@ -10,6 +10,7 @@ const Main = () => {
     ]
 
     const renderCategories = ({ item }) =>
+    // HERBİR ITEM'A TIKLANINCA BİZİ İLGİLİ SAYFAYA GÖNDERECEK NAVIGATION'LA//
         <TouchableOpacity
             style={{
                 width: Dimensions.get("window").width / 2.5,

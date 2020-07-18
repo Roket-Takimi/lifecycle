@@ -1,13 +1,15 @@
 import React from 'react'
 import { SafeAreaView, View, TouchableOpacity, Text, FlatList, Dimensions } from 'react-native'
 
-const Calories = () => {
+const Activities = () => {
 
     /*
-        TÜM GÜNLER VE TOPLAM KALORİLER GÖSTERİLİR
-        YİYECEK LİSTESİ GÖSTERİLİR
-        TIKLAYINCA DETAY SAYFASINA GİDER
-
+        1. ETKİNLİK BAŞLIĞI VE HARİTA EKLEME
+        2. TÜM BUNLARI DÜZENLEME
+        3. TARİH-SAAT EKLEME
+        4. İNSANLARI EKLEME
+        5. ETKİNLİK İÇERİĞİ
+        
     */
 
 
@@ -15,11 +17,11 @@ const Calories = () => {
         <SafeAreaView>
             <View>
                 <TouchableOpacity>
-                    <Text>Calories</Text>
+                    <Text>Activities</Text>
                 </TouchableOpacity>
             </View>
         </SafeAreaView>
     )
 }
 
-export default Calories
+export default Activities

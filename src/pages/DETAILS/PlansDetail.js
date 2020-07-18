@@ -1,25 +1,26 @@
 import React from 'react'
 import { SafeAreaView, View, TouchableOpacity, Text, FlatList, Dimensions } from 'react-native'
 
-const Calories = () => {
+const Plans = () => {
 
-    /*
-        TÜM GÜNLER VE TOPLAM KALORİLER GÖSTERİLİR
-        YİYECEK LİSTESİ GÖSTERİLİR
-        TIKLAYINCA DETAY SAYFASINA GİDER
-
+     /*
+        1. OPTIONAL İNSANLARI EKLEME
+        2. PLAN DETAYI 
+        3. PLAN BAŞLIĞI VE OPTIONAL PARA EKLEME
+        4. TÜM BUNLARI DÜZENLEME
+        5. OPTIONAL TARİH-SAAT EKLEME
+        
     */
-
 
     return(
         <SafeAreaView>
             <View>
                 <TouchableOpacity>
-                    <Text>Calories</Text>
+                    <Text>Plans</Text>
                 </TouchableOpacity>
             </View>
         </SafeAreaView>
     )
 }
 
-export default Calories
+export default Plans

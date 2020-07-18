@@ -4,9 +4,11 @@ import { SafeAreaView, View, TouchableOpacity, Text, FlatList, Dimensions } from
 const Calories = () => {
 
     /*
-        TÜM GÜNLER VE TOPLAM KALORİLER GÖSTERİLİR
-        YİYECEK LİSTESİ GÖSTERİLİR
-        TIKLAYINCA DETAY SAYFASINA GİDER
+        1. YİYECEK LİSTESİNİ GÖSTER (KATEGORİLER) => AYRI BİR SAYFAYA YÖNLENDİRELİM
+        2. YİYECEK İÇECEK EKLEME
+        3. KALORİLERİ TOPLAMA
+        4. ADET EKLEME
+        5. ITEM DÜZENLE 
 
     */
 

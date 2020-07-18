@@ -4,11 +4,10 @@ import { SafeAreaView, View, TouchableOpacity, Text, FlatList, Dimensions } from
 const Activities = () => {
 
     /*
-        1. ETKİNLİK BAŞLIĞI
-        2. TÜM BUNLARI DÜZENLEME
-        3. TARİH-SAAT EKLEME
-        4. İNSANLARI EKLEME
-        5. ETKİNLİK İÇERİĞİ
+        TÜM ETKİNLİKLER, TARİH, SAAT ŞEKLİNDE GÖSTERİLİR
+        HARİTADA GÖSTEREBİLİR MİYİZ BAKALIM
+        ARAMA BUTONU
+        TIKLAYINCA DETAY SAYFASINA GİDER
         
     */
 

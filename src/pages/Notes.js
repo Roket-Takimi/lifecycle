@@ -8,7 +8,7 @@ const Notes = () => {
         ARAMA BUTONU (İÇERİĞİ DE KAPSAR)
         TIKLAYINCA DETAY SAYFASINA GİDER
 
-        
+
     */
 
 
@@ -23,4 +23,4 @@ const Notes = () => {
     )
 }
 
-export default Notes
+export {Notes}

@@ -47,7 +47,7 @@ const Main = () => {
                         justifyContent: "center", alignContent: "center",
                         alignItems: "center", alignSelf: "center"
                     }}
-                    style={{ height: Dimensions.get("window").height / 1.3, alignSelf: "center", 
+                    style={{ height: Dimensions.get("window").height / 1.3, alignSelf: "center",
                 marginTop: 25 }}
                     numColumns={2}
                     keyExtractor={(item, index) => index.toString()}
@@ -72,4 +72,4 @@ const Main = () => {
     )
 }
 
-export default Main
+export {Main}

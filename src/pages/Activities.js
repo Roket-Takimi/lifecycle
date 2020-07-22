@@ -8,7 +8,7 @@ const Activities = () => {
         HARİTADA GÖSTEREBİLİR MİYİZ BAKALIM
         ARAMA BUTONU
         TIKLAYINCA DETAY SAYFASINA GİDER
-        
+
     */
 
 
@@ -23,4 +23,4 @@ const Activities = () => {
     )
 }
 
-export default Activities
+export {Activities}

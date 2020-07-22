@@ -7,7 +7,7 @@ const Plans = () => {
         TÜM PLANLAR LİSTE HALİNDE GÖSTERİLİR
         TIKLAYINCA DETAY SAYFASINA GİDER
         ARAMA BUTONU
-        
+
     */
 
     return(
@@ -21,4 +21,4 @@ const Plans = () => {
     )
 }
 
-export default Plans
+export {Plans}

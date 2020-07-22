@@ -22,4 +22,4 @@ const Calories = () => {
     )
 }
 
-export default Calories
+export {Calories}

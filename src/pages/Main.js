@@ -80,6 +80,7 @@ import styles from './styles'
 import {MyButton} from '../components/'
 
 const Main = (props) => {
+    const goCalories = () => props.navigation.navigate("CaloriePage")
     return(
     <SafeAreaView style={styles.main.mainView}>
         <View style={styles.main.logoView}>
@@ -94,6 +95,7 @@ const Main = (props) => {
                 text="Kalorilerini Öğren"
                 stil={styles.main.menuColumn}
                 stiltxt={styles.main.menuText}
+                press={goCalories}
                 />
                 <MyButton
                 text="Planlama Takvimi"

@@ -328,6 +328,17 @@ const styles = {
             justifyContent:'center'
         }
       
+    }),
+    //Main Page End
+    //Calorie Page Start
+    calorie:StyleSheet.create({
+        mainView:{
+            flex:1,
+            backgroundColor:'#FFFFFF',
+        },
+        liste:{
+            flex:1
+        }
     })
 
 }

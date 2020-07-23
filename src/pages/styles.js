@@ -217,19 +217,21 @@ const styles = {
         },
         logoView:{
             width:Dimensions.get('window').width / (10 / 9),
-            flex:2,
+            //flex:2,
+            height:Dimensions.get('window').height / (10 / 3)
 
            
         },
         logo:{
             width:Dimensions.get('window').width / (10 / 9),
-            height:Dimensions.get('window').height / (10 /3),
+            height:Dimensions.get('window').height / (10 /4),
             //flex:1,
-            resizeMode:'center'
+            resizeMode:'contain'
         },
         formView:{
             width:Dimensions.get('window').width / (10 / 9),
-            flex:6,
+            height:Dimensions.get('window').height / (10/7.5),
+            //flex:6,
             flexDirection:'column',
             marginTop:Dimensions.get('window').height / (10 /1)
         },

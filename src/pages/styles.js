@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, Dimensions} from 'react-native';
 
 const styles = {
+    //Login Page Start
     login:StyleSheet.create({
         mainView:{
             flex:1,
@@ -132,6 +133,8 @@ const styles = {
 
         }
     }),
+    //Login Page End
+    //Calorie Page Start
     calorie:StyleSheet.create({
         centeredView: {
             flex: 1,
@@ -176,6 +179,8 @@ const styles = {
             textAlign: "center"
         }
     }),
+    //Calorie Page End
+    //Spending Page Start
     spending:StyleSheet.create({
         mainView:{
             flex:1,
@@ -201,6 +206,8 @@ const styles = {
 
 
     }),
+    //Spending Page End
+    //Sign In Page Start
     signIn:StyleSheet.create({
         mainView:{
             flex:1,
@@ -263,8 +270,63 @@ const styles = {
             alignSelf:'center'
         }
 
-    })
+    }),
+    //Sign In Page End
+    //Main Page Start
+    main:StyleSheet.create({
+        mainView:{
+            flex:1,
+            backgroundColor:'#FFFFFF',
+            flexDirection:'column',
+            alignItems:'center'
+        },
+        logoView:{
+            width:Dimensions.get('window').width / (10/9),
+            height:Dimensions.get('window').height / (10 /4)
+        },
+        logo:{
+            width:Dimensions.get('window').width / (10/9),
+            height:Dimensions.get('window').height / (10 /4),
+            resizeMode:'contain'
+        },
+        menuView:{
+            width:Dimensions.get('window').width / (10/9),
+            height:Dimensions.get('window').height / (10 /6),
 
+        },
+        menuRow:{
+            width:Dimensions.get('window').width / (10/9),
+            height:Dimensions.get('window').height / (10 /1.3),
+            justifyContent:'space-around',
+            alignItems:'center',
+            flexDirection:'row'
+        },
+        bosluk:{
+            width:Dimensions.get('window').width / (0.5),
+            height:Dimensions.get('window').height / (20/1)
+        },
+        menuColumn:{
+            width:Dimensions.get('window').width / (10/4),
+            height:Dimensions.get('window').height / (10 /1),
+            backgroundColor:'#448AFF',
+            borderRadius:20,
+            alignItems:'center',
+            justifyContent:'center'
+        },
+        menuText:{
+            color:'white',
+            fontWeight:'700'
+        },
+        menuSingle:{
+            width:Dimensions.get('window').width / (10/9),
+            height:Dimensions.get('window').height / (10 /1),
+            backgroundColor:'#448AFF',
+            borderRadius:20,
+            alignItems:'center',
+            justifyContent:'center'
+        }
+      
+    })
 
 }
 

@@ -14,7 +14,7 @@ function Router(){
                 <Stack.Screen name={"CaloriePage"} component={Calories}/>
                 <Stack.Screen name={"ExpensesPage"} component={Expenses}/>
                 <Stack.Screen options={{headerShown:false}} name={"LoginPage"} component={Login}/>
-                <Stack.Screen name={"MainPage"} component={Main}/>
+                <Stack.Screen options={{headerShown:false}} name={"MainPage"} component={Main}/>
                 <Stack.Screen name={"NotePage"} component={Notes}/>
                 <Stack.Screen name={"PlanPage"} component={Plans}/>
                 <Stack.Screen options={{headerShown:false}} name={"SignupPage"} component={Signup}/>

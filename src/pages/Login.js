@@ -51,6 +51,7 @@ const Login = (props) => {
              stil={styles.login.loginBtn}
              stiltxt={styles.login.loginBtnTxt}
              text="GİRİŞ YAP"
+             press={loginYap}
              />
               <MyButton
              stil={styles.login.marginB}

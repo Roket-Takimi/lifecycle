@@ -4,77 +4,79 @@ import {StyleSheet, Dimensions} from 'react-native';
 const styles = {
     login:StyleSheet.create({
         mainView:{
+            flex:1,
             flexDirection:'column',
-            width:Dimensions.get('window').width / 1,
-            height:Dimensions.get('window').height / 1,
-            backgroundColor:'#ececec'
+            backgroundColor:'#FFFFFF'
         },
         logoView:{
-            width:Dimensions.get('window').width / 3,
-            height:Dimensions.get('window').height / 5,
-            alignItems:'center',
-            alignSelf:'center',
-            marginTop:70
+            flex:3,
+            justifyContent:'center',
+            alignItems:'center'
         },
-        logoText:{
-            fontSize:40,
-            fontStyle:'italic',
-            borderColor:'#f39c12',
+        logo:{
+            
             borderWidth:1,
-            padding:16,
-            borderRadius:20,
-            color:'#f39c12'
+            borderColor:'#ececec',
+            padding:30,
+            alignSelf:'center',
+            justifyContent:'flex-end'
         },
         inputView:{
-            width:Dimensions.get('window').width / (10/9),
-            height:Dimensions.get('window').height / (10 / 1.1),
+            flex:4,
+            justifyContent:'center'
+        },
+        btnView:{
+            flex:3,
+            flexDirection:'column',
+            justifyContent:'flex-start',
             alignItems:'center',
-            alignSelf:'center',
-            margin:10
-        },
-        input:{
-            backgroundColor:'#ecf0f1',
-            width:Dimensions.get('window').width / (10/9),
-            height:Dimensions.get('window').height / (10 / 1),
-            margin:5,
-            alignSelf:'center',
-            flex:1,
-            paddingLeft:20,
-            borderBottomColor:"#f39c12",
-            borderBottomWidth:1
-        },
-        inputLabel:{
-            textAlign:'left',
-            width:Dimensions.get('window').width / (10/9),
-            marginBottom:10
 
         },
-        loginButton:{
-            width:Dimensions.get('window').width / (10/9),
-            height:Dimensions.get('window').height / (20/1.3),
+        inputRow:{
+            width:Dimensions.get('window').width / (10 / 8),
+            flexDirection:'row',
+            alignItems:'center',
+            height:Dimensions.get('window').height / (10 / 1),
+            alignSelf:'center'
+
+        },
+        inputColumnLabel:{
+            width:Dimensions.get('window').width / (10 / 2)
+
+        },
+        label:{
+            color:'#448AFF'
+        },
+        inputColumnForm:{
+            width:Dimensions.get('window').width / (10 / 6)
+        },
+        input:{
+            borderColor:'#ececec',
             borderWidth:1,
-            borderColor:"#f39c12",
-            alignSelf:'center',
-            borderRadius:10,
+            borderRadius:30,
+            shadowColor:'#ececec',
+            backgroundColor:'#FFFFFF',
+            elevation:10
+        },
+        loginBtn:{
+            backgroundColor:'#448AFF',
+            borderRadius:20,
+            marginBottom:10,
+            width:Dimensions.get('window').width / (5 / 2),
+            height:Dimensions.get('window').height / (16 / 1),
             alignItems:'center',
             justifyContent:'center'
         },
-        loginButtonTxt:{
-            color:'#f39c12'
+        loginBtnTxt:{
+            color:'white',
+            fontWeight:'bold',
+            fontSize:16
         },
-        signInButton:{
-            width:Dimensions.get('window').width / (10/9),
-            height:Dimensions.get('window').height / (20/1.3),
-            borderWidth:1,
-            borderColor:"#f39c12",
-            alignSelf:'center',
-            borderRadius:10,
-            alignItems:'center',
-            justifyContent:'center',
-            margin:10
+        marginB:{
+            marginBottom:10
         },
-        signInButtonTxt:{
-            color:"#f39c12"
+        textBtn:{
+            fontWeight:'400'
         }
 
     }),

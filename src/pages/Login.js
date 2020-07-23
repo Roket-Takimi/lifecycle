@@ -1,7 +1,5 @@
 import React from 'react'
 import { SafeAreaView, View, TouchableOpacity, Text, FlatList, Dimensions } from 'react-native'
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import styles from './styles'
 import {MyButton, MyInput} from '../components';
 
@@ -18,45 +16,50 @@ const Login = (props) => {
     const bas = () => console.log("asdasdasd");
     const loginYap = () => props.navigation.navigate("MainPage");
     return(
-        <SafeAreaView style={{flex:1}}>
-            <View style={styles.login.mainView}>
-                <View style={styles.login.logoView}>
-                    <Text style={styles.login.logoText}>logo</Text>
-                </View>
-                <View style={styles.login.inputView}>
-                    <Text style={styles.login.inputLabel}>Kullanıcı Adı</Text>
-                    <MyInput
-                        plc="kullanıcı adı"
-                        stil={styles.login.input}
-                    />
-
-                </View>
-                <View style={styles.login.inputView}>
-                    <Text style={styles.login.inputLabel}>Şifre</Text>
-                    <MyInput
-                        plc="**********"
-                        stil={styles.login.input}
-                    />
-
-                </View>
-                <View>
-                    <MyButton
-                        stil={styles.login.loginButton}
-                        stiltxt={styles.login.loginButtonTxt}
-                        text="Giriş Yap"
-                        press={loginYap}
-                    />
-                </View>
-                <View>
-                    <MyButton
-                        stil={styles.login.signInButton}
-                        stiltxt={styles.login.signInButtonTxt}
-                        text="Kayıt Ol"
-                        press={bas}
-                    />
-                </View>
-            </View>
-        </SafeAreaView>
+        <SafeAreaView style={styles.login.mainView}>
+         <View style={styles.login.logoView}>
+             <Text style={styles.login.logo}>logo</Text>
+         </View>
+         <View style={styles.login.inputView}>
+             <View style={styles.login.inputRow}>
+                 <View style={styles.login.inputColumnLabel}>
+                     <Text style={styles.login.label}>Mail</Text>
+                 </View>
+                 <View style={styles.login.inputColumnForm}>
+                     <MyInput
+                     stil={styles.login.input}
+                     />
+                 </View>
+             </View>
+             <View style={styles.login.inputRow}>
+                 <View style={styles.login.inputColumnLabel}>
+                     <Text style={styles.login.label}>Şifre</Text>
+                 </View>
+                 <View style={styles.login.inputColumnForm}>
+                     <MyInput
+                     stil={styles.login.input}
+                     />
+                 </View>
+             </View>
+         </View>
+         <View style={styles.login.btnView}>
+             <MyButton
+             stil={styles.login.loginBtn}
+             stiltxt={styles.login.loginBtnTxt}
+             text="GİRİŞ YAP"
+             />
+              <MyButton
+             stil={styles.login.marginB}
+             stiltxt={styles.login.textBtn}
+             text="Parolamı Unuttum"
+             />
+              <MyButton
+             stil={styles.login.marginB}
+             stiltxt={styles.login.textBtn}
+             text="Kayıt Ol"
+             />
+         </View>
+     </SafeAreaView>
     )
 }
 

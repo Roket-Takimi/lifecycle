@@ -15,6 +15,7 @@ const Login = (props) => {
     */
     const bas = () => console.log("asdasdasd");
     const loginYap = () => props.navigation.navigate("MainPage");
+    const goSignUp = () => props.navigation.navigate("SignupPage");
     return(
         <SafeAreaView style={styles.login.mainView}>
          <View style={styles.login.logoView}>
@@ -60,6 +61,8 @@ const Login = (props) => {
              stil={styles.login.marginB}
              stiltxt={styles.login.textBtn}
              text="Kayıt Ol"
+             press={goSignUp}
+
              />
          </View>
      </SafeAreaView>

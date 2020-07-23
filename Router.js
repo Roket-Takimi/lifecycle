@@ -17,7 +17,7 @@ function Router(){
                 <Stack.Screen name={"MainPage"} component={Main}/>
                 <Stack.Screen name={"NotePage"} component={Notes}/>
                 <Stack.Screen name={"PlanPage"} component={Plans}/>
-                <Stack.Screen name={"SignupPage"} component={Signup}/>
+                <Stack.Screen options={{headerShown:false}} name={"SignupPage"} component={Signup}/>
             </Stack.Navigator>
         </NavigationContainer>
     );

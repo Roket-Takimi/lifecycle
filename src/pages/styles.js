@@ -6,16 +6,18 @@ const styles = {
         mainView:{
             flex:1,
             flexDirection:'column',
-            backgroundColor:'#FFFFFF'
+            backgroundColor:'#FFFFFF',
         },
         logoView:{
+            marginTop:70,
             flex:3,
-            justifyContent:'center',
+            justifyContent:'flex-end',
             alignItems:'center'
         },
         logo:{
             width:Dimensions.get('window').width / (10 / 8),
-            height:Dimensions.get('window').height / (10 / 2.5)
+            height:Dimensions.get('window').height / (10 / 2.5),
+
 
         },
         inputView:{
@@ -197,6 +199,69 @@ const styles = {
 
         }
 
+
+    }),
+    signIn:StyleSheet.create({
+        mainView:{
+            flex:1,
+            flexDirection:'column',
+            alignItems:'center',
+            backgroundColor:'#FFFFFF'
+        },
+        logoView:{
+            width:Dimensions.get('window').width / (10 / 9),
+            flex:2,
+
+           
+        },
+        logo:{
+            width:Dimensions.get('window').width / (10 / 9),
+            height:Dimensions.get('window').height / (10 /3),
+            //flex:1,
+            resizeMode:'center'
+        },
+        formView:{
+            width:Dimensions.get('window').width / (10 / 9),
+            flex:6,
+            flexDirection:'column',
+            marginTop:Dimensions.get('window').height / (10 /1)
+        },
+        formRow:{
+            width:Dimensions.get('window').width / (10 / 9),
+            alignItems:'center',
+            marginTop:18,
+            justifyContent:'center',
+            flexDirection:'row'
+        },
+        labelColumn:{
+            width:Dimensions.get('window').width / (10 / 1.5),
+            marginRight:6
+        },
+        formColumn:{
+            width:Dimensions.get('window').width / (10 / 6)
+        },
+        input:{
+            backgroundColor:'#FFFFFF',
+            borderRadius:20,
+            elevation:10
+        },
+        label:{
+            color:"#448AFF"
+        },
+        signInBtn:{
+            backgroundColor:"#448AFF",
+            borderRadius:20,
+            height:Dimensions.get('window').height / (20 / 1.4),
+            width:Dimensions.get('window').width / ( 3 / 1),
+            justifyContent:'center',
+            alignSelf:'center',
+            marginTop:Dimensions.get('window').height / (20 / 1)
+        },
+        signInBtnTxt:{
+            color:'white',
+            fontWeight:'700',
+            alignSelf:'center'
+        }
 
     })
 

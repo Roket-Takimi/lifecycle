@@ -13,7 +13,7 @@ function Router(){
                 <Stack.Screen name={"ActivityPage"} component={Activities}/>
                 <Stack.Screen name={"CaloriePage"} component={Calories}/>
                 <Stack.Screen name={"ExpensesPage"} component={Expenses}/>
-                <Stack.Screen name={"LoginPage"} component={Login}/>
+                <Stack.Screen options={{headerShown:false}} name={"LoginPage"} component={Login}/>
                 <Stack.Screen name={"MainPage"} component={Main}/>
                 <Stack.Screen name={"NotePage"} component={Notes}/>
                 <Stack.Screen name={"PlanPage"} component={Plans}/>

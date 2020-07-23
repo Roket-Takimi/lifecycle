@@ -14,12 +14,9 @@ const styles = {
             alignItems:'center'
         },
         logo:{
-            
-            borderWidth:1,
-            borderColor:'#ececec',
-            padding:30,
-            alignSelf:'center',
-            justifyContent:'flex-end'
+            width:Dimensions.get('window').width / (10 / 8),
+            height:Dimensions.get('window').height / (10 / 2.5)
+
         },
         inputView:{
             flex:4,

@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView, View, TouchableOpacity, Text, FlatList, Dimensions } from 'react-native'
+import { SafeAreaView, View, Text ,Image} from 'react-native'
 import styles from './styles'
 import {MyButton, MyInput} from '../components';
 
@@ -18,7 +18,10 @@ const Login = (props) => {
     return(
         <SafeAreaView style={styles.login.mainView}>
          <View style={styles.login.logoView}>
-             <Text style={styles.login.logo}>logo</Text>
+             <Image 
+             style={styles.login.logo}
+             source={require('../assets/logo.png')}
+             />
          </View>
          <View style={styles.login.inputView}>
              <View style={styles.login.inputRow}>

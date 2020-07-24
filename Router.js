@@ -11,7 +11,7 @@ function Router(){
         <NavigationContainer>
             <Stack.Navigator initialRouteName="LoginPage">
                 <Stack.Screen name={"ActivityPage"} component={Activities}/>
-                <Stack.Screen name={"CaloriePage"} component={Calories}/>
+                <Stack.Screen options={{headerShown:false}} name={"CaloriePage"} component={Calories}/>
                 <Stack.Screen name={"ExpensesPage"} component={Expenses}/>
                 <Stack.Screen options={{headerShown:false}} name={"LoginPage"} component={Login}/>
                 <Stack.Screen options={{headerShown:false}} name={"MainPage"} component={Main}/>

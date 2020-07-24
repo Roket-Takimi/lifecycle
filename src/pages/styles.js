@@ -338,6 +338,17 @@ const styles = {
         },
         liste:{
             flex:1
+        },
+        headerView:{
+        width:Dimensions.get('window').width / 1,
+        height:Dimensions.get('window').height / (10 / 0.5),
+        alignItems:'center',
+        justifyContent:'center',
+        margin:5
+        },
+        headerText:{
+            borderBottomWidth:1,
+            fontSize:Dimensions.get('window').fontScale *20
         }
     })
 

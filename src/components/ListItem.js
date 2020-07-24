@@ -4,9 +4,13 @@ import Component_styles from './Component_styles'
 const ListItem = props => {
     return(
      <View style={Component_styles.listItem.listItemView}>
-         <Text style={Component_styles.listItem.listItemText}>
-             {props.veri}
+         <View style={Component_styles.listItem.listRow}>
+             <Text style={Component_styles.listItem.listItemText}>
+             {props.name}
          </Text>
+    <Text>{props.cal}Kalori</Text>
+         </View>
+         
      </View>
     )
 }

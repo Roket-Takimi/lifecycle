@@ -1,18 +1,9 @@
 import React from 'react'
 import { SafeAreaView, View, TouchableOpacity, Text, FlatList, Dimensions } from 'react-native'
 
-const Activities = () => {
-//Deneme
-    /*
-        TÜM ETKİNLİKLER, TARİH, SAAT ŞEKLİNDE GÖSTERİLİR
-        HARİTADA GÖSTEREBİLİR MİYİZ BAKALIM
-        ARAMA BUTONU
-        TIKLAYINCA DETAY SAYFASINA GİDER
+const Deneme = () => {
 
-    */
-
-
-    return(
+    return (
         <SafeAreaView>
             <View>
                 <TouchableOpacity>
@@ -23,4 +14,4 @@ const Activities = () => {
     )
 }
 
-export {Activities}
+export { Deneme }

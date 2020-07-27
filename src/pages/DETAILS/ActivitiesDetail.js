@@ -24,4 +24,4 @@ const Activities = () => {
     )
 }
 
-export default Activities
+export {Activities}

@@ -24,4 +24,4 @@ const Notes = () => {
     )
 }
 
-export default Notes
+export {Notes}

@@ -23,4 +23,4 @@ const Plans = () => {
     )
 }
 
-export default Plans
+export {Plans}

@@ -24,4 +24,4 @@ const Expenses = () => {
     )
 }
 
-export default Expenses
+export {Expenses}

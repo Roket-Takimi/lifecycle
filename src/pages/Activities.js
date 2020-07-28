@@ -14,10 +14,10 @@ const Activities = () => {
     const [list,setList]=useState([])
 
     const [activities,SetActivities] = useState([
-        {id:1,activityName"Test 1"},
-        {id:2,activityName"Test 2"},
-        {id:3,activityName"Test 3"},
-        {id:4,activityName"Test 4"}
+        {id:1,activityName:"Test 1"},
+        {id:2,activityName:"Test 2"},
+        {id:3,activityName:"Test 3"},
+        {id:4,activityName:"Test 4"}
     ])
 
     const renderItems = ({}) => {

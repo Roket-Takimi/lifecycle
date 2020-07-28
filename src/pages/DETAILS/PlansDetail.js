@@ -1,59 +1,82 @@
-import React from 'react'
-import { SafeAreaView, View, TouchableOpacity, Text, FlatList, Dimensions } from 'react-native'
-import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
+import React, {useState} from 'react'
+import { SafeAreaView, View, TouchableOpacity, Text, FlatList, Dimensions, Modal, Pressable } from 'react-native'
+import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 
 
 const PlansDetail = () => {
+    const [modalVisible, setModalVisible] = useState(false);
+    const [plan, setPlan] = useState("")
+    const [date, setDate] = useState("")
 
-     /*
-        1. OPTIONAL İNSANLARI EKLEME
-        2. PLAN DETAYI 
-        3. PLAN BAŞLIĞI VE OPTIONAL PARA EKLEME
-        4. TÜM BUNLARI DÜZENLEME
-        5. OPTIONAL TARİH-SAAT EKLEME
-        
-    */
+    /*
+       1. OPTIONAL İNSANLARI EKLEME
+       2. PLAN DETAYI 
+       3. PLAN BAŞLIĞI VE OPTIONAL PARA EKLEME
+       4. TÜM BUNLARI DÜZENLEME
+       5. OPTIONAL TARİH-SAAT EKLEME
+       
+   */
+    const vacation = { key: 'vacation', color: 'red', selectedDotColor: 'blue' };
+    const massage = { key: 'massage', color: 'blue', selectedDotColor: 'blue' };
+    const workout = { key: 'workout', color: 'green' };
 
-    return(
+    return (
         <SafeAreaView>
             <View>
                 <TouchableOpacity>
                     <Text>Plans</Text>
-                    </TouchableOpacity>
+                </TouchableOpacity>
+                <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+        }}
+      >
+           <View >
+          <View >
+            <Text>Hello World!</Text>
 
-                    <Calendar
-  minDate={'2012-05-10'}
-  maxDate={'2030-05-30'}
-  onDayPress={(day) => {console.log('selected day', day)}}
-  monthFormat={'yyyy MM'}
-  onMonthChange={(month) => {console.log('month changed', month)}}
-  hideArrows={false}
-  hideExtraDays={false}
-  // If hideArrows=false and hideExtraDays=false do not switch month when tapping on greyed out
-  // day from another month that is visible in calendar page. Default = false
-  disableMonthChange={false}
-  // If firstDay=1 week starts from Monday. Note that dayNames and dayNamesShort should still start from Sunday.
-  firstDay={1}
-  // Hide day names. Default = false
-  hideDayNames={false}
-  // Show week numbers to the left. Default = false
-  showWeekNumbers={false}
-  // Handler which gets executed when press arrow icon left. It receive a callback can go back month
-  onPressArrowLeft={subtractMonth => subtractMonth()}
-  // Handler which gets executed when press arrow icon right. It receive a callback can go next month
-  onPressArrowRight={addMonth => addMonth()}
-  // Disable left arrow. Default = false
-  disableArrowLeft={true}
-  // Disable right arrow. Default = false
-  disableArrowRight={true}
-  // Disable all touch events for disabled days. can be override with disableTouchEvent in markedDates
-  disableAllTouchEventsForDisabledDays={true}
-  /** Replace default month and year title with custom one. the function receive a date as parameter. */
-  renderHeader={(date) => {/*Return JSX*/}}
-/>
+            <Pressable
+              style={{ backgroundColor: "#2196F3" }}
+              onPress={() => {
+                setModalVisible(!modalVisible);
+              }}
+            >
+              <Text>Hide Modal</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
+                <CalendarList
+                    // Callback which gets executed when visible months change in scroll view. Default = undefined
+                    onVisibleMonthsChange={(months) => { console.log('now these months are visible', months); }}
+                  
+                    // Enable or disable scrolling of calendar list
+                    scrollEnabled={true}
+                    // Enable or disable vertical scroll indicator. Default = false
+                    showScrollIndicator={true}
+                    onDayPress={(day) => { console.log('selected day', day); setModalVisible(!modalVisible) }}
+                    onMonthChange={(month) => { console.log('month changed', month) }}
+
+                    markedDates={{
+                        '2020-05-25': { dots: [vacation, massage, workout], selected: true, selectedColor: 'red' },
+                        '2020-05-26': { dots: [massage, workout], disabled: true }
+                    }}
+                    markingType={'multi-dot'}
+
+                   
+                    style={{
+                        borderWidth: 1,
+                        borderColor: 'gray',
+                        height: 350
+                      }}
+                    firstDay={1}
+                />
             </View>
         </SafeAreaView>
     )
 }
 
-export {PlansDetail}
+export { PlansDetail }

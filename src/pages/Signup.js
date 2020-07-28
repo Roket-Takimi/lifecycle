@@ -1,7 +1,9 @@
-import React from 'react'
-import { SafeAreaView, View, Image ,Text} from 'react-native'
+import React, { useState } from 'react'
+import { SafeAreaView, View, Image ,Text, Alert} from 'react-native'
 import styles from './styles'
 import {MyInput, MyButton} from '../components/'
+import axios from 'axios'
+
 const Signup = () => {
 
     /*
@@ -12,7 +14,33 @@ const Signup = () => {
         5. MAİL, ŞİFRE VE ŞİFREYİ YENİDEN GİRİN INPUTU / REUSABLE COMPONENT???
 
     */
+    const [adSoyad,setAdSoyad] = useState("")
+    const [mail,setMail] = useState("")
+    const [password,setPassword] = useState("")
+    const [rePassword,setRePassword] = useState("") 
 
+    const changeAd = (text) => setAdSoyad(text)
+    const changeMail = (text) => setMail(text)
+    const changePassword = (text) => setPassword(text)
+    const changeRePassword = (text) => setRePassword(text)
+
+    const doSignIn = (text) => {
+        if(password != rePassword){
+            Alert.alert("Şifreler aynı değil.")
+        }else if((adSoyad == "") || (mail == "") || (password == "") || (rePassword == "")){
+            Alert.alert("Her alanı doldurunuz lütfen.")
+        } else{
+                axios.post('https://draltaynihatacar.com/api/kodluyoruz_kullanici.php',
+                {
+                    'adi': 'hasanmerttt',
+                    'mail': 'hasanmerer@gmail.com',
+                    'password': 'asdasd'
+                }
+                
+                )
+
+            }
+    }
     return (
         <SafeAreaView style={styles.signIn.mainView}>
            <View style={styles.signIn.logoView}>
@@ -30,6 +58,8 @@ const Signup = () => {
                    <View style={styles.signIn.formColumn}>
                        <MyInput
                        stil={styles.signIn.input}
+                       changeText={changeAd}
+                       veri={adSoyad}
                        />
                    </View>
                </View>
@@ -43,6 +73,8 @@ const Signup = () => {
                    <View style={styles.signIn.formColumn}>
                        <MyInput
                        stil={styles.signIn.input}
+                       changeText={changeMail}
+                       veri={mail}
                        />
                    </View>
                </View>
@@ -54,6 +86,8 @@ const Signup = () => {
                    <View style={styles.signIn.formColumn}>
                        <MyInput
                        stil={styles.signIn.input}
+                       changeText={changePassword}
+                       veri={password}
                        />
                    </View>
                </View>
@@ -65,6 +99,8 @@ const Signup = () => {
                    <View style={styles.signIn.formColumn}>
                        <MyInput
                        stil={styles.signIn.input}
+                       changeText={changeRePassword}
+                       veri={rePassword}
                        />
                    </View>
                </View>
@@ -72,6 +108,7 @@ const Signup = () => {
                stil={styles.signIn.signInBtn}
                stiltxt={styles.signIn.signInBtnTxt}
                text="Kayıt Ol"
+               press={doSignIn}
                />
            </View>
         </SafeAreaView>

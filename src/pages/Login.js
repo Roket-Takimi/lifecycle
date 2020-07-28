@@ -1,9 +1,12 @@
-import React from 'react'
-import { SafeAreaView, View, Text ,Image} from 'react-native'
+import React, { useState } from 'react'
+import { SafeAreaView, View, Text ,Image, Alert} from 'react-native'
 import styles from './styles'
 import {MyButton, MyInput} from '../components';
-
+import axios from 'axios';
 const Login = (props) => {
+
+    const [mail,setMail] = useState("")
+    const [password,setPassword] = useState("")
 
     /*
         1. MAİL VE ŞİFRE INPUTU / REUSABLE COMPONENT???
@@ -13,8 +16,24 @@ const Login = (props) => {
         5. BENİ HATIRLA BUTONU (HASAN MERTCİM BACKEND AKAR <3)
 
     */
-    const bas = () => console.log("asdasdasd");
-    const loginYap = () => props.navigation.navigate("MainPage");
+    const changeMail = (text) => setMail(text) // Mail inputundaki veriyi state atan fonksiyon
+    const changePassword = (text) => setPassword(text) // Password inputundaki veriyi state e atan fonksiyon
+    
+    const loginYap = () => {
+        if((mail == "") || (password == "")){
+            Alert.alert("Mail veya şifre alanı boş bırakılamaz.")
+        }else{
+            axios.get(`https://draltaynihatacar.com/api/kodluyoruz_kullanici.php?mail=${mail}&password=${password}`)
+        .then(function(response){
+            props.navigation.navigate("MainPage")
+        })
+        .catch(function(error){
+            console.log(error)
+            Alert.alert("Kullanıcı adı veya şifre hatalı.")
+        })
+        }
+        
+    }
     const goSignUp = () => props.navigation.navigate("SignupPage");
     return(
         <SafeAreaView style={styles.login.mainView}>
@@ -32,6 +51,8 @@ const Login = (props) => {
                  <View style={styles.login.inputColumnForm}>
                      <MyInput
                      stil={styles.login.input}
+                     veri={mail}
+                     changeText={changeMail}
                      />
                  </View>
              </View>
@@ -42,6 +63,8 @@ const Login = (props) => {
                  <View style={styles.login.inputColumnForm}>
                      <MyInput
                      stil={styles.login.input}
+                     veri={password}
+                     changeText={changePassword}
                      />
                  </View>
              </View>

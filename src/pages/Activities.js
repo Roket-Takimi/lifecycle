@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { SafeAreaView, View, TouchableOpacity, Text, FlatList, Dimensions } from 'react-native'
+import styles from './styles'
 
 const Activities = () => {
-//Deneme
+    //Deneme
     /*
         TÜM ETKİNLİKLER, TARİH, SAAT ŞEKLİNDE GÖSTERİLİR
         HARİTADA GÖSTEREBİLİR MİYİZ BAKALIM
@@ -10,17 +11,35 @@ const Activities = () => {
         TIKLAYINCA DETAY SAYFASINA GİDER
 
     */
+    const [list,setList]=useState([])
 
+    const [activities,SetActivities] = useState([
+        {id:1,activityName"Test 1"},
+        {id:2,activityName"Test 2"},
+        {id:3,activityName"Test 3"},
+        {id:4,activityName"Test 4"}
+    ])
 
-    return(
-        <SafeAreaView>
-            <View>
-                <TouchableOpacity>
-                    <Text>Activities</Text>
-                </TouchableOpacity>
+    const renderItems = ({}) => {
+        return 
+    }
+    return (
+        <SafeAreaView style={styles.activity.mainView} >
+
+            <View style={styles.activity.headerView} >
+                <Text style={styles.activity.headerText} >AKTİVİTE GÖR</Text>
             </View>
+
+            <FlatList
+                data={activities}
+                keyExtractor={(_,index) => index.toString()}
+                renderItem={renderItems}
+           />
+
+
         </SafeAreaView>
+
     )
 }
 
-export {Activities}
+export { Activities }

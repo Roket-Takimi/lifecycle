@@ -243,6 +243,115 @@ const styles = {
         }
     }),
     //Calorie Page End
+    //Activity Page Start
+    activity:StyleSheet.create({
+        centeredView: {
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: 22
+        },
+        modalWidhtView:{
+            width:Dimensions.get('window').width / (10 / 8),
+            height:Dimensions.get('window').height / (10 / 8),
+            alignItems:'center',
+            justifyContent:'center'
+        },
+        modalView: {
+            margin: 20,
+            backgroundColor: "white",
+            borderRadius: 20,
+            padding: 35,
+            alignItems: "center",
+            shadowColor: "#000",
+            shadowOffset: {
+                width: 0,
+                height: 2
+            },
+            shadowOpacity: 0.25,
+            shadowRadius: 3.84,
+            elevation: 5
+        },
+        openButton: {
+            backgroundColor: "#F194FF",
+            borderRadius: 20,
+            padding: 10,
+            elevation: 2
+        },
+        textStyle: {
+            color: "white",
+            fontWeight: "bold",
+            textAlign: "center"
+        },
+        modalText: { 
+            marginBottom: 15,
+            textAlign: "center"
+        },
+        headerText: {
+            position: 'absolute',
+            width:Dimensions.get('window').width / (10 / 9),
+            height:Dimensions.get('window').height / (10 / 0.4),
+            display: 'flex',
+            alignItems: 'center',
+            textAlign: 'center',
+
+            color: 'black',
+            fontSize:Dimensions.get('window').fontScale *20
+        },
+        mainView:{
+            flex:1,
+            backgroundColor:'#FFFFFF',
+        },
+        liste:{
+            flex:1,
+        },
+        headerView:{
+            width:Dimensions.get('window').width / (10 / 9),
+            height:Dimensions.get('window').height / (10 / 0.4),
+            alignItems:'center',
+            justifyContent:'center',
+            margin: Dimensions.get('window').height / (10 / 0.3),
+        },
+        calorieItem:{
+            width: Dimensions.get('window').width * 0.9,
+            height: Dimensions.get('window').height * 0.08,
+            backgroundColor:'#448AFF',
+            borderRadius: 30,
+            margin: 20,
+            alignSelf: 'center',
+            justifyContent: 'center',
+            elevation: 2,
+        },
+        calorieItemTitle:{
+            width: Dimensions.get('window').width * 0.9,
+            height: Dimensions.get('window').height * 0.08,
+            backgroundColor:'#ffffff',
+            borderRadius: 30,
+            margin: 20,
+            alignSelf: 'center',
+            justifyContent: 'center',
+            elevation: 2,
+        },
+        calorieText: {
+            alignSelf: 'center',
+            alignItems: 'center',
+            fontSize: 14,
+            fontWeight: 'bold',
+            color: '#ffffff',
+        },
+        image: {
+            margin: 20,
+            width:Dimensions.get('window').width / (10 / 9),
+            height:Dimensions.get('window').height / (10 / 2),
+        },
+        imageView: {
+            margin: Dimensions.get("window").width / (10 / 0.1),
+            justifyContent:'center',
+            alignItems:'center',
+            resizeMode: 'contain',
+        }
+    }),
+    //Activity Page End
     //Spending Page Start
     spending:StyleSheet.create({
         mainView:{

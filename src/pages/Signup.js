@@ -4,7 +4,7 @@ import styles from './styles'
 import {MyInput, MyButton} from '../components/'
 import axios from 'axios'
 
-const Signup = () => {
+const Signup = (props) => {
 
     /*
         1. HESAP OLUŞTUR BUTONU / REUSABLE COMPONENT
@@ -24,20 +24,49 @@ const Signup = () => {
     const changePassword = (text) => setPassword(text)
     const changeRePassword = (text) => setRePassword(text)
 
-    const doSignIn = (text) => {
+    const doSignIn = async(text) => {
         if(password != rePassword){
             Alert.alert("Şifreler aynı değil.")
         }else if((adSoyad == "") || (mail == "") || (password == "") || (rePassword == "")){
             Alert.alert("Her alanı doldurunuz lütfen.")
         } else{
-                axios.post('https://draltaynihatacar.com/api/kodluyoruz_kullanici.php',
-                {
-                    'adi': 'hasanmerttt',
-                    'mail': 'hasanmerer@gmail.com',
-                    'password': 'asdasd'
-                }
                 
+
+                axios.post('https://draltaynihatacar.com/api/kodluyoruz_kullanici.php', 
+                JSON.stringify({
+                    adi:adSoyad,
+                    mail:mail,
+                    password:password
+                })
                 )
+                  .then(function (response) {
+                    console.log(response.data.cevap);
+                    Alert.alert(response.data.cevap);
+                    props.navigation.navigate("LoginPage");
+                  })
+                  .catch(function (error) {
+                    console.log(error.response);
+                    Alert.alert(error.response.data.hataMesaji);
+                  });
+            
+            
+            //     try{
+            //     await fetch('https://draltaynihatacar.com/api/kodluyoruz_kullanici.php',{
+            //         method:'post',
+            //         mode:'no-cors',
+            //         headers:{
+            //             'Accept': 'application/json',
+            //             'Context': 'application/json'
+            //         },
+            //         body:JSON.stringify({
+            //             adi:adSoyad,
+            //             mail:mail,
+            //             password:password
+            //         })
+            //     })
+            // }catch(e){
+            //     console.log(e);
+            // }
 
             }
     }

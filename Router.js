@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, HeaderTitle } from '@react-navigation/stack';
 import {Activities,Calories,Expenses,Login,Main,Plans,Signup} from './src/pages';
 import { CaloriesDetail } from './src/pages/DETAILS/CaloriesDetail';
+import { ActivitiesDetail } from './src/pages/DETAILS/ActivitiesDetail';
 
 const Stack = createStackNavigator();
 
@@ -12,6 +13,7 @@ function Router(){
         <NavigationContainer>
             <Stack.Navigator initialRouteName="LoginPage">
                 <Stack.Screen name={"ActivityPage"} component={Activities}/>
+                <Stack.Screen name={"ActivitiesDetailPage"} component={ActivitiesDetail} options={{headerTitle: "Aktivite detay"}}/>
                 <Stack.Screen options={{headerShown:false}} name={"CaloriePage"} component={Calories}/>
                 <Stack.Screen name={"CaloriesDetailPage"} component={CaloriesDetail} options={{headerTitle: "Besin Değerleri"}}/>
                 <Stack.Screen name={"ExpensesPage"} component={Expenses}/>

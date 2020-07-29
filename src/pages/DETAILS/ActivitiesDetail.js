@@ -1,7 +1,8 @@
 import React from 'react'
-import { SafeAreaView, View, TouchableOpacity, Text, FlatList, Dimensions } from 'react-native'
+import { SafeAreaView, View, TouchableOpacity, Text,Image, FlatList, Dimensions } from 'react-native'
+import styles from '../styles'
 
-const Activities = () => {
+const ActivitiesDetail = props => {
 
     /*
         1. ETKİNLİK BAŞLIĞI VE HARİTA EKLEME
@@ -11,17 +12,28 @@ const Activities = () => {
         5. ETKİNLİK İÇERİĞİ
         
     */
+   const propsItem = props.route.params.data;
 
 
     return(
         <SafeAreaView>
-            <View>
-                <TouchableOpacity>
-                    <Text>Activities</Text>
-                </TouchableOpacity>
+        <View>
+
+            <View style={styles.activity.imageView}>
+                <Image 
+                    style={styles.activity.image}
+                    source={require('../../assets/activityImage.jpg')}
+                />
             </View>
-        </SafeAreaView>
+
+            <View style={styles.activity.activityItemDetail}>
+                <Text style={styles.activity.activityDetailText}> {propsItem.detail}</Text>
+            </View>
+            
+            
+        </View>
+    </SafeAreaView>
     )
 }
 
-export {Activities}
+export {ActivitiesDetail}

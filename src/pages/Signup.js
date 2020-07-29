@@ -50,6 +50,7 @@ const Signup = (props) => {
                   });
             
             
+                  //Alternatif kullanım
             //     try{
             //     await fetch('https://draltaynihatacar.com/api/kodluyoruz_kullanici.php',{
             //         method:'post',

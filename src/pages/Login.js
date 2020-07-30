@@ -1,12 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { SafeAreaView, View, Text ,Image, Alert} from 'react-native'
 import styles from './styles'
 import {MyButton, MyInput} from '../components';
 import axios from 'axios';
+import SplashScreen from 'react-native-splash-screen'
 const Login = (props) => {
 
     const [mail,setMail] = useState("")
     const [password,setPassword] = useState("")
+
+    useEffect(() => {
+        SplashScreen.hide();
+      },[])
 
     /*
         1. MAİL VE ŞİFRE INPUTU / REUSABLE COMPONENT???

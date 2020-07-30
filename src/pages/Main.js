@@ -80,8 +80,10 @@ import styles from './styles'
 import {MyButton} from '../components/'
 
 const Main = (props) => {
-    const goCalories = () => props.navigation.navigate("Calorie")
-    const goActivities = () => props.navigation.navigate("Activity")
+    const goCalories = () => props.navigation.navigate("Calories")
+    const goActivities = () => props.navigation.navigate("Activities")
+    const goPlans = () => props.navigation.navigate("Plans")
+    const goExpenses = () => props.navigation.navigate("Expenses")
 
     return(
     <SafeAreaView style={styles.main.mainView}>
@@ -103,6 +105,7 @@ const Main = (props) => {
                 text="Planlama Takvimi"
                 stil={styles.main.menuColumn}
                 stiltxt={styles.main.menuText}
+                press={goPlans}
                 />
             </View>
             <View style={styles.main.menuRow}>
@@ -117,6 +120,7 @@ const Main = (props) => {
                 text="Harcama Listesi"
                 stil={styles.main.menuColumn}
                 stiltxt={styles.main.menuText}
+                press={goExpenses}
                 />
             </View>
         </View>

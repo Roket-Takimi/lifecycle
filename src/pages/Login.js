@@ -55,9 +55,11 @@ const Login = (props) => {
                  </View>
                  <View style={styles.login.inputColumnForm}>
                      <MyInput
-                     stil={styles.login.input}
-                     veri={mail}
-                     changeText={changeMail}
+                        stil={styles.login.input}
+                        veri={mail}
+                        changeText={changeMail}
+                        keyboardType="email-address"
+                        autoCapitalize="none"
                      />
                  </View>
              </View>
@@ -67,9 +69,10 @@ const Login = (props) => {
                  </View>
                  <View style={styles.login.inputColumnForm}>
                      <MyInput
-                     stil={styles.login.input}
-                     veri={password}
-                     changeText={changePassword}
+                        stil={styles.login.input}
+                        veri={password}
+                        changeText={changePassword}
+                        secureTextEntry
                      />
                  </View>
              </View>

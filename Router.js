@@ -2,25 +2,26 @@ import 'react-native-gesture-handler';
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, HeaderTitle } from '@react-navigation/stack';
-import {Activities,Calories,Expenses,Login,Main,Plans,Signup} from './src/pages';
-import { CaloriesDetail } from './src/pages/DETAILS/CaloriesDetail';
-import { ActivitiesDetail } from './src/pages/DETAILS/ActivitiesDetail';
+import { Activities, Calories, Expenses, Login, Main, Plans, Signup } from './src/pages';
+import { CaloriesDetail, ActivitiesDetail, ExpensesDetail, PlansDetail } './src/pages/DETAILS'
 
 const Stack = createStackNavigator();
 
-function Router(){
-    return(
+function Router() {
+    return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="LoginPage">
-                <Stack.Screen name={"ActivityPage"} component={Activities}/>
-                <Stack.Screen name={"ActivitiesDetailPage"} component={ActivitiesDetail} options={{headerTitle: "Aktivite detay"}}/>
-                <Stack.Screen options={{headerShown:false}} name={"CaloriePage"} component={Calories}/>
-                <Stack.Screen name={"CaloriesDetailPage"} component={CaloriesDetail} options={{headerTitle: "Besin Değerleri"}}/>
-                <Stack.Screen name={"ExpensesPage"} component={Expenses}/>
-                <Stack.Screen options={{headerShown:false}} name={"LoginPage"} component={Login}/>
-                <Stack.Screen options={{headerShown:false}} name={"MainPage"} component={Main}/>
-                <Stack.Screen name={"PlanPage"} component={Plans}/>
-                <Stack.Screen options={{headerShown:false}} name={"SignupPage"} component={Signup}/>
+            <Stack.Navigator initialRouteName="Login">
+                <Stack.Screen name={"Signup"} component={Signup} options={{ headerShown: false }} />
+                <Stack.Screen name={"Login"} component={Login} options={{ headerShown: false }} />
+                <Stack.Screen name={"Main"} component={Main} options={{ headerShown: false }} />
+                <Stack.Screen name={"Activities"} component={Activities} />
+                <Stack.Screen name={"ActivitiesDetail"} component={ActivitiesDetail} options={{ headerTitle: "Aktivite detay" }} />
+                <Stack.Screen name={"Calories"} component={Calories} options={{ headerShown: false }} />
+                <Stack.Screen name={"CaloriesDetail"} component={CaloriesDetail} options={{ headerTitle: "Besin Değerleri" }} />
+                <Stack.Screen name={"Expenses"} component={Expenses} />
+                <Stack.Screen name={"ExpensesDetail"} component={ExpensesDetail} />
+                <Stack.Screen name={"Plans"} component={Plans} />
+                <Stack.Screen name={"PlansDetail"} component={PlansDetail} />
             </Stack.Navigator>
         </NavigationContainer>
     );

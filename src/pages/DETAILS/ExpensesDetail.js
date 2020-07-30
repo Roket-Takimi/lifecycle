@@ -1,7 +1,7 @@
 import React from 'react'
 import { SafeAreaView, View, TouchableOpacity, Text, FlatList, Dimensions } from 'react-native'
 
-const Expenses = () => {
+const ExpensesDetail = () => {
 
     /*
         1. TARİH EKLEME
@@ -24,4 +24,4 @@ const Expenses = () => {
     )
 }
 
-export {Expenses}
+export {ExpensesDetail}

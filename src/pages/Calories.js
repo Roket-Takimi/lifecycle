@@ -35,7 +35,7 @@ const Calories = props => {
     };
 
     function caloriesPress(item) {
-        props.navigation.navigate('CaloriesDetailPage', {data: item});
+        props.navigation.navigate('CaloriesDetail', {data: item});
     }
 
    function searchItem(text) {

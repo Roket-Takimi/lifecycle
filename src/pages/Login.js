@@ -30,7 +30,7 @@ const Login = (props) => {
         }else{
             axios.get(`https://draltaynihatacar.com/api/kodluyoruz_kullanici.php?mail=${mail}&password=${password}`)
         .then(function(response){
-            props.navigation.navigate("MainPage")
+            props.navigation.navigate("Main")
         })
         .catch(function(error){
             console.log(error)
@@ -39,7 +39,7 @@ const Login = (props) => {
         }
         
     }
-    const goSignUp = () => props.navigation.navigate("SignupPage");
+    const goSignUp = () => props.navigation.navigate("Signup");
     return(
         <SafeAreaView style={styles.login.mainView}>
          <View style={styles.login.logoView}>

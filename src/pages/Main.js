@@ -80,8 +80,8 @@ import styles from './styles'
 import {MyButton} from '../components/'
 
 const Main = (props) => {
-    const goCalories = () => props.navigation.navigate("CaloriePage")
-    const goActivities = () => props.navigation.navigate("ActivityPage")
+    const goCalories = () => props.navigation.navigate("Calorie")
+    const goActivities = () => props.navigation.navigate("Activity")
 
     return(
     <SafeAreaView style={styles.main.mainView}>

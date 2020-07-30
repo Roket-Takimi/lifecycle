@@ -30,7 +30,7 @@ const Activities = props => {
     }
 
     function activitiesPress(item) {
-        props.navigation.navigate('ActivitiesDetailPage',{data:item})
+        props.navigation.navigate('ActivitiesDetail',{data:item})
     }
 
     return (

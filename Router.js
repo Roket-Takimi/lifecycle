@@ -3,7 +3,7 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, HeaderTitle } from '@react-navigation/stack';
 import { Activities, Calories, Expenses, Login, Main, Plans, Signup } from './src/pages';
-import { CaloriesDetail, ActivitiesDetail, ExpensesDetail, PlansDetail } './src/pages/DETAILS'
+import { CaloriesDetail, ActivitiesDetail, ExpensesDetail, PlansDetail } from './src/pages/DETAILS'
 
 const Stack = createStackNavigator();
 

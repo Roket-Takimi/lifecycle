@@ -2,8 +2,10 @@ import 'react-native-gesture-handler';
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, HeaderTitle } from '@react-navigation/stack';
-import { Activities, Calories, Expenses, Login, Main, Plans, Signup } from './src/pages';
+import { Activities, Expenses, Login, Main, Plans, Signup } from './src/pages';
 import { CaloriesDetail, ActivitiesDetail, ExpensesDetail, PlansDetail } from './src/pages/DETAILS'
+
+import Calories from './src/pages/Calories'
 
 const Stack = createStackNavigator();
 

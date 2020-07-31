@@ -222,7 +222,7 @@ export default class Calories extends React.Component {
                         <Animated.View
                             style={{
                                 justifyContent: "center",
-                                alignItems: "center",
+                                alignItems: "baseline",
                                 transform: [
                                     {
                                         translateX: translateXTabTwo
@@ -233,7 +233,115 @@ export default class Calories extends React.Component {
                                 ]
                             }}
                         >
-                            <Text>Günlük Kalorinin Takip Edileceği Sayfa</Text>
+                            <View style={{flexDirection: 'row', margin: 15, marginLeft: 0, width: Dimensions.get('window').width * 0.9,
+            height: Dimensions.get('window').height * 0.08, borderWidth: 1, borderRadius: 15, alignItems: 'center', backgroundColor: '#007aff', borderColor: '#007aff', padding: 10 }}>
+                                <Image
+                                    source={require("../assets/breakfast.png")}
+                                    style={{
+                                        width: 40,
+                                        height: 40,
+                                        borderRadius: 15,
+                                        resizeMode: 'contain'
+                                    }}
+                                />
+                                <View>
+                                    <Text style= {{marginLeft: 10, color: 'white', fontSize: 16}}>Kahvaltı</Text>
+                                    <Text style= {{marginLeft: 10, color: 'white', opacity: 0.6}}>Önerilen 255 kcal</Text>
+                                </View>
+                                
+                            </View>
+
+                            <View style={{flexDirection: 'row', margin: 15, marginLeft: 0, width: Dimensions.get('window').width * 0.9,
+            height: Dimensions.get('window').height * 0.08, borderWidth: 1, borderRadius: 10, alignItems: 'center', backgroundColor: '#007aff', borderColor: '#77a0ff', padding: 10 }}>
+                                <Image
+                                    source={require("../assets/snack.png")}
+                                    style={{
+                                        width: 40,
+                                        height: 40,
+                                        borderRadius: 15,
+                                        resizeMode: 'contain'
+                                    }}
+                                />
+                                <View>
+                                    <Text style= {{marginLeft: 10, color: 'white', fontSize: 16}}>1. Ara Öğün</Text>
+                                    <Text style= {{marginLeft: 10, color: 'white', opacity: 0.6}}>Önerilen 165 kcal</Text>
+                                </View>
+                            </View>
+
+                            <View style={{flexDirection: 'row', margin: 15, marginLeft: 0, width: Dimensions.get('window').width * 0.9,
+            height: Dimensions.get('window').height * 0.08, borderWidth: 1, borderRadius: 10, alignItems: 'center', backgroundColor: '#007aff', borderColor: '#77a0ff', padding: 10 }}>
+                                <Image
+                                    source={require("../assets/lunch.png")}
+                                    style={{
+                                        width: 40,
+                                        height: 40,
+                                        borderRadius: 15,
+                                        resizeMode: 'contain'
+                                    }}
+                                />
+                                <View>
+                                    <Text style= {{marginLeft: 10, color: 'white', fontSize: 16}}>Öğle Yemeği</Text>
+                                    <Text style= {{marginLeft: 10, color: 'white', opacity: 0.6}}>Önerilen 330 kcal</Text>
+                                </View>
+
+                            </View>
+
+                            <View style={{flexDirection: 'row', margin: 15, marginLeft: 0, width: Dimensions.get('window').width * 0.9,
+            height: Dimensions.get('window').height * 0.08, borderWidth: 1, borderRadius: 10, alignItems: 'center', backgroundColor: '#007aff', borderColor: '#77a0ff', padding: 10 }}>
+                                <Image
+                                    source={require("../assets/snack.png")}
+                                    style={{
+                                        width: 40,
+                                        height: 40,
+                                        borderRadius: 15,
+                                        resizeMode: 'contain'
+                                    }}
+                                />
+
+                                <View>
+                                    <Text style= {{marginLeft: 10, color: 'white', fontSize: 16}}>2. Ara Öğün</Text>
+                                    <Text style= {{marginLeft: 10, color: 'white', opacity: 0.6}}>Önerilen 165 kcal</Text>
+                                </View>
+
+                            </View>
+
+                            <View style={{flexDirection: 'row', margin: 15, marginLeft: 0, width: Dimensions.get('window').width * 0.9,
+            height: Dimensions.get('window').height * 0.08, borderWidth: 1, borderRadius: 10, alignItems: 'center', backgroundColor: '#007aff', borderColor: '#77a0ff', padding: 10 }}>
+                                <Image
+                                    source={require("../assets/dinner.png")}
+                                    style={{
+                                        width: 40,
+                                        height: 40,
+                                        borderRadius: 15,
+                                        resizeMode: 'contain'
+                                    }}
+                                />
+
+                                <View>
+                                    <Text style= {{marginLeft: 10, color: 'white', fontSize: 16}}>Akşam Yemeği</Text>
+                                    <Text style= {{marginLeft: 10, color: 'white', opacity: 0.6}}>Önerilen 330 kcal</Text>
+                                </View>
+                                
+                            </View>
+
+                            <View style={{flexDirection: 'row', margin: 15, marginLeft: 0, width: Dimensions.get('window').width * 0.9,
+            height: Dimensions.get('window').height * 0.08, borderWidth: 1, borderRadius: 10, alignItems: 'center', backgroundColor: '#007aff', borderColor: '#77a0ff', padding: 10 }}>
+                                <Image
+                                    source={require("../assets/snack.png")}
+                                    style={{
+                                        width: 40,
+                                        height: 40,
+                                        borderRadius: 15,
+                                        resizeMode: 'contain'
+                                    }}
+                                />
+
+                                <View>
+                                    <Text style= {{marginLeft: 10, color: 'white', fontSize: 16}}>3. Ara Öğün</Text>
+                                    <Text style= {{marginLeft: 10, color: 'white', opacity: 0.6}}>Önerilen 90 kcal</Text>
+                                </View>
+                                
+                            </View>
                             
                         </Animated.View>
                     </ScrollView>

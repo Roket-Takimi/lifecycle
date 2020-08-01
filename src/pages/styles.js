@@ -240,7 +240,71 @@ const styles = {
             justifyContent:'center',
             alignItems:'center',
             resizeMode: 'contain',
+        },
+        tab1: {
+            width: "90%",
+            marginLeft: "auto",
+            marginRight: "auto"
+        },
+        tab2: {
+            flexDirection: "row",
+            marginTop: 40,
+            marginBottom: 20,
+            height: 36,
+            position: "relative"
+        },
+        tab3: {
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            borderWidth: 1,
+            borderColor: "#007aff",
+            borderRadius: 4,
+            borderRightWidth: 0,
+            borderTopRightRadius: 0,
+            borderBottomRightRadius: 0
+        },
+        tab4: {
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            borderWidth: 1,
+            borderColor: "#007aff",
+            borderRadius: 4,
+            borderLeftWidth: 0,
+            borderTopLeftRadius: 0,
+            borderBottomLeftRadius: 0
+        },
+        kaloriTakipItem: {
+            flexDirection: 'row', 
+            margin: 15, 
+            marginLeft: 0, 
+            width: Dimensions.get('window').width * 0.9,
+            height: Dimensions.get('window').height * 0.08, 
+            borderWidth: 1, 
+            borderRadius: 15, 
+            alignItems: 'center', 
+            backgroundColor: '#007aff', 
+            borderColor: '#007aff', 
+            padding: 10 
+        },
+        kaloriTakipText1: {
+            marginLeft: 10, 
+            color: 'white', 
+            fontSize: 16
+        },
+        kaloriTakipText2: {
+            marginLeft: 10, 
+            color: 'white', 
+            opacity: 0.6
+        },
+        imgStyle: {
+            width: 40,
+            height: 40,
+            borderRadius: 15,
+            resizeMode: 'contain'
         }
+
     }),
     //Calorie Page End
     //Activity Page Start

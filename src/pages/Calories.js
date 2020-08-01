@@ -88,20 +88,10 @@ export default class Calories extends React.Component {
         return (
             <View style={{ flex: 1 }}>
                 <View
-                    style={{
-                        width: "90%",
-                        marginLeft: "auto",
-                        marginRight: "auto"
-                    }}
+                    style={styles.calorie.tab1}
                 >
                     <View
-                        style={{
-                            flexDirection: "row",
-                            marginTop: 40,
-                            marginBottom: 20,
-                            height: 36,
-                            position: "relative"
-                        }}
+                        style={styles.calorie.tab2}
                     >
                         <Animated.View
                             style={{
@@ -120,17 +110,7 @@ export default class Calories extends React.Component {
                             }}
                         />
                         <TouchableOpacity
-                            style={{
-                                flex: 1,
-                                justifyContent: "center",
-                                alignItems: "center",
-                                borderWidth: 1,
-                                borderColor: "#007aff",
-                                borderRadius: 4,
-                                borderRightWidth: 0,
-                                borderTopRightRadius: 0,
-                                borderBottomRightRadius: 0
-                            }}
+                            style={styles.calorie.tab3}
                             onLayout={event =>
                                 this.setState({
                                     xTabOne: event.nativeEvent.layout.x
@@ -151,17 +131,7 @@ export default class Calories extends React.Component {
                             </Text>
                         </TouchableOpacity>
                         <TouchableOpacity
-                            style={{
-                                flex: 1,
-                                justifyContent: "center",
-                                alignItems: "center",
-                                borderWidth: 1,
-                                borderColor: "#007aff",
-                                borderRadius: 4,
-                                borderLeftWidth: 0,
-                                borderTopLeftRadius: 0,
-                                borderBottomLeftRadius: 0
-                            }}
+                            style={styles.calorie.tab4}
                             onLayout={event =>
                                 this.setState({
                                     xTabTwo: event.nativeEvent.layout.x
@@ -200,16 +170,9 @@ export default class Calories extends React.Component {
                                 })
                             }
                         >
-                            {/* <Text>Hi, I am a cute cat</Text> */}
+                    
                             <View style={{ marginTop: 20 }}>
-                                {/* <Image
-                                    source={require("../assets/cat.jpg")}
-                                    style={{
-                                        width: 30,
-                                        height: 30,
-                                        borderRadius: 15
-                                    }}
-                                /> */}
+                                
 
                             <SearchBar
                                 //changeText={searchItem}
@@ -233,112 +196,76 @@ export default class Calories extends React.Component {
                                 ]
                             }}
                         >
-                            <View style={{flexDirection: 'row', margin: 15, marginLeft: 0, width: Dimensions.get('window').width * 0.9,
-            height: Dimensions.get('window').height * 0.08, borderWidth: 1, borderRadius: 15, alignItems: 'center', backgroundColor: '#007aff', borderColor: '#007aff', padding: 10 }}>
+                            <View style={styles.calorie.kaloriTakipItem}>
                                 <Image
                                     source={require("../assets/breakfast.png")}
-                                    style={{
-                                        width: 40,
-                                        height: 40,
-                                        borderRadius: 15,
-                                        resizeMode: 'contain'
-                                    }}
+                                    style={styles.calorie.imgStyle}
                                 />
                                 <View>
-                                    <Text style= {{marginLeft: 10, color: 'white', fontSize: 16}}>Kahvaltı</Text>
-                                    <Text style= {{marginLeft: 10, color: 'white', opacity: 0.6}}>Önerilen 255 kcal</Text>
+                                    <Text style= {styles.calorie.kaloriTakipText1}>Kahvaltı</Text>
+                                    <Text style= {styles.calorie.kaloriTakipText2}>Önerilen 255 kcal</Text>
                                 </View>
                                 
                             </View>
 
-                            <View style={{flexDirection: 'row', margin: 15, marginLeft: 0, width: Dimensions.get('window').width * 0.9,
-            height: Dimensions.get('window').height * 0.08, borderWidth: 1, borderRadius: 10, alignItems: 'center', backgroundColor: '#007aff', borderColor: '#77a0ff', padding: 10 }}>
+                            <View style={styles.calorie.kaloriTakipItem}>
                                 <Image
                                     source={require("../assets/snack.png")}
-                                    style={{
-                                        width: 40,
-                                        height: 40,
-                                        borderRadius: 15,
-                                        resizeMode: 'contain'
-                                    }}
+                                    style={styles.calorie.imgStyle}
                                 />
                                 <View>
-                                    <Text style= {{marginLeft: 10, color: 'white', fontSize: 16}}>1. Ara Öğün</Text>
-                                    <Text style= {{marginLeft: 10, color: 'white', opacity: 0.6}}>Önerilen 165 kcal</Text>
+                                    <Text style= {styles.calorie.kaloriTakipText1}>1. Ara Öğün</Text>
+                                    <Text style= {styles.calorie.kaloriTakipText2}>Önerilen 165 kcal</Text>
                                 </View>
                             </View>
 
-                            <View style={{flexDirection: 'row', margin: 15, marginLeft: 0, width: Dimensions.get('window').width * 0.9,
-            height: Dimensions.get('window').height * 0.08, borderWidth: 1, borderRadius: 10, alignItems: 'center', backgroundColor: '#007aff', borderColor: '#77a0ff', padding: 10 }}>
+                            <View style={styles.calorie.kaloriTakipItem}>
                                 <Image
                                     source={require("../assets/lunch.png")}
-                                    style={{
-                                        width: 40,
-                                        height: 40,
-                                        borderRadius: 15,
-                                        resizeMode: 'contain'
-                                    }}
+                                    style={styles.calorie.imgStyle}
                                 />
                                 <View>
-                                    <Text style= {{marginLeft: 10, color: 'white', fontSize: 16}}>Öğle Yemeği</Text>
-                                    <Text style= {{marginLeft: 10, color: 'white', opacity: 0.6}}>Önerilen 330 kcal</Text>
+                                    <Text style= {styles.calorie.kaloriTakipText1}>Öğle Yemeği</Text>
+                                    <Text style= {styles.calorie.kaloriTakipText2}>Önerilen 330 kcal</Text>
                                 </View>
 
                             </View>
 
-                            <View style={{flexDirection: 'row', margin: 15, marginLeft: 0, width: Dimensions.get('window').width * 0.9,
-            height: Dimensions.get('window').height * 0.08, borderWidth: 1, borderRadius: 10, alignItems: 'center', backgroundColor: '#007aff', borderColor: '#77a0ff', padding: 10 }}>
+                            <View style={styles.calorie.kaloriTakipItem}>
                                 <Image
                                     source={require("../assets/snack.png")}
-                                    style={{
-                                        width: 40,
-                                        height: 40,
-                                        borderRadius: 15,
-                                        resizeMode: 'contain'
-                                    }}
+                                    style={styles.calorie.imgStyle}
                                 />
 
                                 <View>
-                                    <Text style= {{marginLeft: 10, color: 'white', fontSize: 16}}>2. Ara Öğün</Text>
-                                    <Text style= {{marginLeft: 10, color: 'white', opacity: 0.6}}>Önerilen 165 kcal</Text>
+                                    <Text style= {styles.calorie.kaloriTakipText1}>2. Ara Öğün</Text>
+                                    <Text style= {styles.calorie.kaloriTakipText2}>Önerilen 165 kcal</Text>
                                 </View>
 
                             </View>
 
-                            <View style={{flexDirection: 'row', margin: 15, marginLeft: 0, width: Dimensions.get('window').width * 0.9,
-            height: Dimensions.get('window').height * 0.08, borderWidth: 1, borderRadius: 10, alignItems: 'center', backgroundColor: '#007aff', borderColor: '#77a0ff', padding: 10 }}>
+                            <View style={styles.calorie.kaloriTakipItem}>
                                 <Image
                                     source={require("../assets/dinner.png")}
-                                    style={{
-                                        width: 40,
-                                        height: 40,
-                                        borderRadius: 15,
-                                        resizeMode: 'contain'
-                                    }}
+                                    style={styles.calorie.imgStyle}
                                 />
 
                                 <View>
-                                    <Text style= {{marginLeft: 10, color: 'white', fontSize: 16}}>Akşam Yemeği</Text>
-                                    <Text style= {{marginLeft: 10, color: 'white', opacity: 0.6}}>Önerilen 330 kcal</Text>
+                                    <Text style= {styles.calorie.kaloriTakipText1}>Akşam Yemeği</Text>
+                                    <Text style= {styles.calorie.kaloriTakipText2}>Önerilen 330 kcal</Text>
                                 </View>
                                 
                             </View>
 
-                            <View style={{flexDirection: 'row', margin: 15, marginLeft: 0, width: Dimensions.get('window').width * 0.9,
-            height: Dimensions.get('window').height * 0.08, borderWidth: 1, borderRadius: 10, alignItems: 'center', backgroundColor: '#007aff', borderColor: '#77a0ff', padding: 10 }}>
+                            <View style={styles.calorie.kaloriTakipItem}>
                                 <Image
                                     source={require("../assets/snack.png")}
-                                    style={{
-                                        width: 40,
-                                        height: 40,
-                                        borderRadius: 15,
-                                        resizeMode: 'contain'
-                                    }}
+                                    style={styles.calorie.imgStyle}
                                 />
 
                                 <View>
-                                    <Text style= {{marginLeft: 10, color: 'white', fontSize: 16}}>3. Ara Öğün</Text>
-                                    <Text style= {{marginLeft: 10, color: 'white', opacity: 0.6}}>Önerilen 90 kcal</Text>
+                                    <Text style= {styles.calorie.kaloriTakipText1}>3. Ara Öğün</Text>
+                                    <Text style= {styles.calorie.kaloriTakipText2}>Önerilen 90 kcal</Text>
                                 </View>
                                 
                             </View>

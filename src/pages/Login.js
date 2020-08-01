@@ -3,14 +3,15 @@ import { SafeAreaView, View, Text ,Image, Alert} from 'react-native'
 import styles from './styles'
 import {MyButton, MyInput} from '../components';
 import axios from 'axios';
-import SplashScreen from 'react-native-splash-screen'
+
+import AsyncStorage from '@react-native-community/async-storage';
 const Login = (props) => {
 
     const [mail,setMail] = useState("")
     const [password,setPassword] = useState("")
 
     useEffect(() => {
-        SplashScreen.hide();
+        
       },[])
 
     /*
@@ -21,6 +22,13 @@ const Login = (props) => {
         5. BENİ HATIRLA BUTONU (HASAN MERTCİM BACKEND AKAR <3)
 
     */
+
+      
+
+
+
+  
+
     const changeMail = (text) => setMail(text) // Mail inputundaki veriyi state atan fonksiyon
     const changePassword = (text) => setPassword(text) // Password inputundaki veriyi state e atan fonksiyon
     
@@ -31,6 +39,7 @@ const Login = (props) => {
             axios.get(`https://draltaynihatacar.com/api/kodluyoruz_kullanici.php?mail=${mail}&password=${password}`)
         .then(function(response){
             props.navigation.navigate("Main")
+            AsyncStorage.setItem('@user_mail', mail)
         })
         .catch(function(error){
             console.log(error)

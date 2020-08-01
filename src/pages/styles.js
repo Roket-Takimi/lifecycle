@@ -512,6 +512,14 @@ const styles = {
             alignItems:'center',
             justifyContent:'center'
         },
+        menuCikisYapColumn:{
+            width:Dimensions.get('window').width / (10/4),
+            height:Dimensions.get('window').height / (10 /1),
+            backgroundColor:'#e74c3c',
+            borderRadius:20,
+            alignItems:'center',
+            justifyContent:'center'
+        },
         menuText:{
             color:'white',
             fontWeight:'700'

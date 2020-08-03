@@ -231,6 +231,7 @@ const styles = {
             color: '#ffffff',
         },
         image: {
+            resizeMode: 'contain',
             margin: 20,
             width:Dimensions.get('window').width / (10 / 9),
             height:Dimensions.get('window').height / (10 / 2),

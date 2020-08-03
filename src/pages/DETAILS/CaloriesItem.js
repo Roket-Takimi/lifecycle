@@ -8,7 +8,7 @@ const CaloriesItem = props => {
     return(
         <SafeAreaView>
             <View>
-                <TouchableOpacity onPress={() => props.press(props.propsData)} style={styles.calorie.calorieItem}>
+                <TouchableOpacity onPress={() => props.press(props.dataItem)} style={styles.calorie.calorieItem}>
                     <Text style={styles.calorie.calorieText}>{props.dataItem.adi}</Text>
                     {/* <Text style={styles.calorie.calorieText}>{props.dataItem.kalori} Kalori</Text> */}
                 </TouchableOpacity>

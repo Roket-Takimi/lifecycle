@@ -3,17 +3,14 @@ import { SafeAreaView, View, TouchableOpacity, Text, Image, FlatList, Dimensions
 
 import styles from '../styles'
 
-const CaloriesDetailItem = ({ data }) => {
+const CaloriesDetailItem = (props) => {
 
     const propsItem = props.route.params.data;
 
     return(
         <SafeAreaView>
             <View>
-
-                <Text>propsItem.adi</Text>
-
-                {/* <View style={styles.calorie.imageView}>
+                <View style={styles.calorie.imageView}>
                     <Image 
                         style={styles.calorie.image}
                         source={require('../../assets/logo.png')}
@@ -21,14 +18,14 @@ const CaloriesDetailItem = ({ data }) => {
                 </View>
 
                 <View style={styles.calorie.calorieItem}>
-                    <Text style={styles.calorie.calorieText}>KALORİ: {data.kalori}</Text>
+                    <Text style={styles.calorie.calorieText}>KALORİ: {props.data.kalori}</Text>
                 </View>
                 <View style={styles.calorie.calorieItem}>
-                    <Text style={styles.calorie.calorieText}>PROTEİN: {data.protein}</Text>
+                    <Text style={styles.calorie.calorieText}>PROTEİN: {props.data.protein}</Text>
                 </View>
                 <View style={styles.calorie.calorieItem}>
-                    <Text style={styles.calorie.calorieText}>ENERJİ: {data.enerji}</Text>
-                </View> */}
+                    <Text style={styles.calorie.calorieText}>ENERJİ: {props.data.enerji}</Text>
+                </View>
             </View>
         </SafeAreaView>
     )

@@ -4,38 +4,38 @@ import axios from 'axios'
 import { CaloriesDetailItem } from '../pages/DETAILS/CaloriesDetailItem'
 
 const CaloriesDetail = props => {
-    const [commentList, setComments] = useState([])
-    const [loading, setLoading] = useState(true)
+    const [detailList, setDetail] = useState([]);
 
     useEffect(() => {
-        fetchComments()
+        fetchData()
     }, [])
 
-    const fetchComments = async () => {
-        let {data} = await axios.get(`https://draltaynihatacar.com/api/besinler.php?id=2`)
-        setComments(data.besin)
+    const fetchData = async () => {
+        let {data} = await axios.get(`https://draltaynihatacar.com/api/besinler.php?id=` + props.route.params.data,)
+        setDetail(data)
         console.log(data.besin);
-        setLoading(false)
     }
 
-    const renderComment = ({ item }) => {
-        console.log("deneme");
+    const renderItems = ({ item }) => {
         return (
-            <CaloriesDetailItem data={item} />
+            <CaloriesDetailItem propsData={item} />
         )
     }
 
     return (
-        <View style={{ flex: 1 }}>
+        <SafeAreaView style={{ flex: 1 }}>
             {
                     <FlatList
                         keyExtractor={(item, index) => index.toString()}
-                        data={commentList}
-                        renderItem={renderComment}
+                        data={detailList}
+                        // renderItem={renderItems}
+                        renderItem={renderItems}
                     />
             }
-        </View>
+        </SafeAreaView>
     )
 }
 
 export { CaloriesDetail }
+
+

@@ -24,40 +24,39 @@ const Calories = props => {
 
 
 
-    const [citiesList, setCitiesList] = useState([]);
-    const [myList, setMyList] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [orginalCitiesList, setOrginalCitiesList] = useState([]);
+    const [foodList, setFoodList] = useState([]);
+    const [orginalFoodList, setOrginalFoodList] = useState([]);
   
     useEffect(() => {
       fetchData();
     }, []);
   
     const fetchData = async () => {
-      setLoading(false);
       let {data} = await axios.get('https://draltaynihatacar.com/api/besinler.php?besinler=asdas');
-      setCitiesList(data.besinler);
-      setMyList(data.count);
+      setFoodList(data.besinler);
       //console.log(data.besinler);
-      setOrginalCitiesList(data.besinler);
-      setLoading(true);
+      setOrginalFoodList(data.besinler);
     };
   
-    const renderCities = ({item}) => {
-      return <CaloriesItem dataItem={item} press={citiesSelect} />;
+    const renderItems = ({item}) => {
+      
+      return <CaloriesItem 
+          dataItem={item} 
+          press={itemSelect} 
+        />;
     };
   
-    function citiesSelect(item) {
-      props.navigation.navigate('CaloriesDetail', {data: item});
+    function itemSelect(item) {
+      props.navigation.navigate('CaloriesDetail', {data: item.id});
     }
   
-    function searchCities(text) {
-      let filteredList = orginalCitiesList.filter(item => {
+    function searchItems(text) {
+      let filteredList = orginalFoodList.filter(item => {
         const ıtemData = item.adi.toUpperCase();
         const textData = text.toUpperCase();
         return ıtemData.indexOf(textData) > -1;
       });
-      setCitiesList(filteredList);
+      setFoodList(filteredList);
     }
 
 
@@ -69,7 +68,7 @@ const Calories = props => {
             </View>
 
             <SearchBar
-                changeText={searchCities}
+                changeText={searchItems}
                 searchBarPlaceHolder={'Arama Yapınız...'}
             />
 
@@ -78,8 +77,8 @@ const Calories = props => {
             //refreshing={loading}
             //onRefresh={fetchData}
             keyExtractor={(item, index) => index.toString()}
-            data={citiesList}
-            renderItem={renderCities}
+            data={foodList}
+            renderItem={renderItems}
         />
           
         </SafeAreaView>

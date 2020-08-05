@@ -42,7 +42,7 @@ const Signup = (props) => {
                   .then(function (response) {
                     console.log(response.data.cevap);
                     Alert.alert(response.data.cevap);
-                    props.navigation.navigate("LoginPage");
+                    props.navigation.navigate("Login");
                   })
                   .catch(function (error) {
                     console.log(error.response);
@@ -118,6 +118,7 @@ const Signup = (props) => {
                        stil={styles.signIn.input}
                        changeText={changePassword}
                        veri={password}
+                       
                        />
                    </View>
                </View>

@@ -64,19 +64,11 @@ const Login = (props) => {
                  </View>
                  <View style={styles.login.inputColumnForm}>
                      <MyInput
-<<<<<<< HEAD
-                     stil={styles.login.input}
-                     veri={mail}
-                     changeText={changeMail}
-                     keyboard="email-address"
-                     plc="mail@mail.com"
-=======
                         stil={styles.login.input}
                         veri={mail}
                         changeText={changeMail}
                         keyboardType="email-address"
                         autoCapitalize="none"
->>>>>>> bedc02635d24f746dcedd7e867119bc6de6093bc
                      />
                  </View>
              </View>
@@ -87,18 +79,10 @@ const Login = (props) => {
 
                  <View style={styles.login.inputColumnForm}>
                      <MyInput
-<<<<<<< HEAD
-                     stil={styles.login.input}
-                     veri={password}
-                     changeText={changePassword}
-                     plc="şifre"
-                     secure={true}
-=======
                         stil={styles.login.input}
                         veri={password}
                         changeText={changePassword}
                         secureTextEntry
->>>>>>> bedc02635d24f746dcedd7e867119bc6de6093bc
                      />
                  </View>
              </View>

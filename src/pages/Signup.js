@@ -118,7 +118,11 @@ const Signup = (props) => {
                        stil={styles.signIn.input}
                        changeText={changePassword}
                        veri={password}
+<<<<<<< HEAD
                        
+=======
+                       secureTextEntry
+>>>>>>> bedc02635d24f746dcedd7e867119bc6de6093bc
                        />
                    </View>
                </View>
@@ -132,6 +136,7 @@ const Signup = (props) => {
                        stil={styles.signIn.input}
                        changeText={changeRePassword}
                        veri={rePassword}
+                       secureTextEntry
                        />
                    </View>
                </View>

@@ -3,14 +3,15 @@ import { SafeAreaView, View, Text ,Image, Alert} from 'react-native'
 import styles from './styles'
 import {MyButton, MyInput} from '../components';
 import axios from 'axios';
-import SplashScreen from 'react-native-splash-screen'
+
+import AsyncStorage from '@react-native-community/async-storage';
 const Login = (props) => {
 
     const [mail,setMail] = useState("")
     const [password,setPassword] = useState("")
 
     useEffect(() => {
-        SplashScreen.hide();
+        
       },[])
 
     /*
@@ -21,6 +22,13 @@ const Login = (props) => {
         5. BENİ HATIRLA BUTONU (HASAN MERTCİM BACKEND AKAR <3)
 
     */
+
+      
+
+
+
+  
+
     const changeMail = (text) => setMail(text) // Mail inputundaki veriyi state atan fonksiyon
     const changePassword = (text) => setPassword(text) // Password inputundaki veriyi state e atan fonksiyon
     
@@ -31,6 +39,7 @@ const Login = (props) => {
             axios.get(`https://draltaynihatacar.com/api/kodluyoruz_kullanici.php?mail=${mail}&password=${password}`)
         .then(function(response){
             props.navigation.navigate("Main")
+            AsyncStorage.setItem('@user_mail', mail)
         })
         .catch(function(error){
             console.log(error)
@@ -55,11 +64,19 @@ const Login = (props) => {
                  </View>
                  <View style={styles.login.inputColumnForm}>
                      <MyInput
+<<<<<<< HEAD
                      stil={styles.login.input}
                      veri={mail}
                      changeText={changeMail}
                      keyboard="email-address"
                      plc="mail@mail.com"
+=======
+                        stil={styles.login.input}
+                        veri={mail}
+                        changeText={changeMail}
+                        keyboardType="email-address"
+                        autoCapitalize="none"
+>>>>>>> bedc02635d24f746dcedd7e867119bc6de6093bc
                      />
                  </View>
              </View>
@@ -70,11 +87,18 @@ const Login = (props) => {
 
                  <View style={styles.login.inputColumnForm}>
                      <MyInput
+<<<<<<< HEAD
                      stil={styles.login.input}
                      veri={password}
                      changeText={changePassword}
                      plc="şifre"
                      secure={true}
+=======
+                        stil={styles.login.input}
+                        veri={password}
+                        changeText={changePassword}
+                        secureTextEntry
+>>>>>>> bedc02635d24f746dcedd7e867119bc6de6093bc
                      />
                  </View>
              </View>

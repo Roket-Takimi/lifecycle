@@ -2,15 +2,18 @@ import 'react-native-gesture-handler';
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, HeaderTitle } from '@react-navigation/stack';
-import { Activities, Calories, Expenses, Login, Main, Plans, Signup } from './src/pages';
-import { CaloriesDetail, ActivitiesDetail, ExpensesDetail, PlansDetail } from './src/pages/DETAILS'
+import { Activities, Expenses, Login, Main, Plans, Signup ,LoginControl, CaloriesDetail} from './src/pages';
+import { ActivitiesDetail, ExpensesDetail, PlansDetail } from './src/pages/DETAILS'
+
+import {Calories} from './src/pages/Calories'
 
 const Stack = createStackNavigator();
 
 function Router() {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="Login">
+            <Stack.Navigator initialRouteName="LoginControlPage">
+                <Stack.Screen name={"LoginControlPage"} component={LoginControl} options={{ headerShown: false }} />
                 <Stack.Screen name={"Signup"} component={Signup} options={{ headerShown: false }} />
                 <Stack.Screen name={"Login"} component={Login} options={{ headerShown: false }} />
                 <Stack.Screen name={"Main"} component={Main} options={{ headerShown: false }} />

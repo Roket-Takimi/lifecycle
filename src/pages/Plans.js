@@ -25,10 +25,17 @@ const Plans = () => {
        
    */
 
+    function dayPressed(day) {
+        setPlanDate(day)
+        console.log('selected day', planDate)
+        setModalVisible(!modalVisible)
+    }
+
     function addPlan() {
         //push details to allplans
-        setModalVisible(true)
-        console.log(planDate)
+        setModalVisible(false)
+        console.log('added?', planDate)
+        setAllPlans(...allPlans, allPlans.push(planDate))
     }
 
     return (
@@ -48,13 +55,16 @@ const Plans = () => {
                     <View style={{ flex: 1, backgroundColor: '#f2f2f2', borderRadius: 20, }}>
                         <View style={{ flex: 1, margin: 20, }}>
 
+
                        
                             <Text
                                 style={{ fontSize: 15 }}
                             >Planım:</Text>
                             <View>
-                                <View style={{flexDirection: 'row', margin: 5, borderRadius: 5,
-                            backgroundColor: '#fefefe', alignItems: 'center'}}>
+                                <View style={{
+                                    flexDirection: 'row', margin: 5, borderRadius: 5,
+                                    backgroundColor: '#fefefe', alignItems: 'center'
+                                }}>
 
                                     <Image source={require('../assets/checklist.png')} />
                                     <TextInput
@@ -63,8 +73,10 @@ const Plans = () => {
                                         style={{ margin: 0, padding: 3 }}
                                     />
                                 </View>
-                                <View style={{flexDirection: 'row', margin: 5, borderRadius: 5,
-                            backgroundColor: '#fefefe', alignItems: 'center'}}>
+                                <View style={{
+                                    flexDirection: 'row', margin: 5, borderRadius: 5,
+                                    backgroundColor: '#fefefe', alignItems: 'center'
+                                }}>
                                     <Image source={require('../assets/checklist.png')} />
                                     <TextInput
                                         autoCapitalize="none"
@@ -93,9 +105,8 @@ const Plans = () => {
 
                     //  selected day {"dateString": "2020-08-28", "day": 28, "month": 8, 
                     //"timestamp": 1598572800000, "year": 2020}
-                    onDayPress={(day) => { setPlanDate(day), console.log('selected day', planDate); setModalVisible(!modalVisible) }}
                     onMonthChange={(month) => { console.log('month changed', month) }}
-
+                    onDayPress={(day) => { dayPressed(day) }}
                     markedDates={{
                         '2020-05-25': { dots: [vacation, massage, workout], selected: true, selectedColor: 'red' },
                         '2020-05-26': { dots: [massage, workout], disabled: true }
@@ -110,6 +121,9 @@ const Plans = () => {
                     }}
                     firstDay={1}
                 />
+                 <Text
+                                style={{ fontSize: 15 }}
+    >{JSON.stringify(planDate)}</Text>
             </View>
         </SafeAreaView>
     )

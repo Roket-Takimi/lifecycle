@@ -58,6 +58,8 @@ const Login = (props) => {
                      stil={styles.login.input}
                      veri={mail}
                      changeText={changeMail}
+                     keyboard="email-address"
+                     plc="mail@mail.com"
                      />
                  </View>
              </View>
@@ -65,11 +67,14 @@ const Login = (props) => {
                  <View style={styles.login.inputColumnLabel}>
                      <Text style={styles.login.label}>Şifre</Text>
                  </View>
+
                  <View style={styles.login.inputColumnForm}>
                      <MyInput
                      stil={styles.login.input}
                      veri={password}
                      changeText={changePassword}
+                     plc="şifre"
+                     secure={true}
                      />
                  </View>
              </View>

@@ -9,6 +9,8 @@ const MyInput = (props) => {
        placeholderTextColor="black"
        style={props.stil}
        value={props.veri}
+       keyboardType={props.keyboard}
+       secureTextEntry={props.secure}
        />
     )
 }

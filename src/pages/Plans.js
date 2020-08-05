@@ -25,9 +25,11 @@ const Plans = () => {
        
    */
 
-   function addPlan () {
-       //push details to allplans
-   }
+    function addPlan() {
+        //push details to allplans
+        setModalVisible(true)
+        console.log(planDate)
+    }
 
     return (
         <SafeAreaView>
@@ -44,26 +46,41 @@ const Plans = () => {
                     style={{ margin: 15, marginTop: 300, }}
                 >
                     <View style={{ flex: 1, backgroundColor: '#f2f2f2', borderRadius: 20, }}>
-                        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                        <View style={{ flex: 1, margin: 20, }}>
 
+                       
                             <Text
                                 style={{ fontSize: 15 }}
-                            >Plan:</Text>
-                            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                                <Image source={require('../assets/checklist.png')} />
-                                <TextInput
-                                    autoCapitalize="none"
-                                    placeholder="Plan"
-                                    style={{ margin: 0, padding: 3 }}
-                                />
+                            >Planım:</Text>
+                            <View>
+                                <View style={{flexDirection: 'row', margin: 5, borderRadius: 5,
+                            backgroundColor: '#fefefe', alignItems: 'center'}}>
+
+                                    <Image source={require('../assets/checklist.png')} />
+                                    <TextInput
+                                        autoCapitalize="none"
+                                        placeholder="Başlık"
+                                        style={{ margin: 0, padding: 3 }}
+                                    />
+                                </View>
+                                <View style={{flexDirection: 'row', margin: 5, borderRadius: 5,
+                            backgroundColor: '#fefefe', alignItems: 'center'}}>
+                                    <Image source={require('../assets/checklist.png')} />
+                                    <TextInput
+                                        autoCapitalize="none"
+                                        placeholder="Detay"
+                                        style={{ margin: 0, padding: 3 }}
+                                    />
+                                </View>
                             </View>
-                                <Pressable
-                                    style={{
-                                        backgroundColor: "#2196F3",
-                                    }}
-                                    onPress={() => addPlan()} >
-                                    <Text>Ekle</Text>
-                                </Pressable>
+                            <Pressable
+                                style={{
+                                    backgroundColor: "#2196F3",
+                                    alignSelf: 'flex-end'
+                                }}
+                                onPress={() => addPlan()} >
+                                <Text>Ekle</Text>
+                            </Pressable>
                         </View>
                     </View>
                 </Modal>
@@ -73,7 +90,7 @@ const Plans = () => {
                     onVisibleMonthsChange={(months) => { console.log('now these months are visible', months); }}
 
                     scrollEnabled={true}
-                    
+
                     //  selected day {"dateString": "2020-08-28", "day": 28, "month": 8, 
                     //"timestamp": 1598572800000, "year": 2020}
                     onDayPress={(day) => { setPlanDate(day), console.log('selected day', planDate); setModalVisible(!modalVisible) }}

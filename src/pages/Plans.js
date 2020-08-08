@@ -26,7 +26,8 @@ const Plans = () => {
     const fetchData = async () => {
         axios.get(`https://draltaynihatacar.com/api/planlar.php?kullaniciId=${userId}&tarih=2020/06/12`)
             .then(response => {
-                setAllPlans(response.planlar)
+                setAllPlans(response.data.planlar)
+                console.log(response.data.planlar)
             })
             .catch(error => {
                 Alert.alert("Life Cycle", "Bir hata oluştu!")
@@ -37,6 +38,7 @@ const Plans = () => {
     const renderItem = ({item}) => {
         return (
             <View>
+                <Text> {item.tarih} </Text>
                 <Text> {item.icerik} </Text>
             </View>
         )

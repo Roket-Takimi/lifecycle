@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { SafeAreaView, View, TouchableOpacity, Text, Image, TextInput, FlatList, Dimensions, Pressable } from 'react-native'
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 import Modal from 'react-native-modal';
+import axios from 'axios'
+import moment from 'moment'
 
 
 const Plans = () => {
     const [modalVisible, setModalVisible] = useState(false);
-    const [planTitle, setPlanTitle] = useState("")
     const [planDetail, setPlanDetail] = useState("")
     const [planDate, setPlanDate] = useState("")
     const [allPlans, setAllPlans] = useState([])
@@ -15,18 +16,35 @@ const Plans = () => {
     const vacation = { key: 'vacation', color: 'red', selectedDotColor: 'blue' };
     const massage = { key: 'massage', color: 'blue', selectedDotColor: 'blue' };
     const workout = { key: 'workout', color: 'green' };
+    const userId = 1
 
-    /*
-       1. OPTIONAL İNSANLARI EKLEME
-       2. PLAN DETAYI 
-       3. PLAN BAŞLIĞI VE OPTIONAL PARA EKLEME
-       4. TÜM BUNLARI DÜZENLEME
-       5. OPTIONAL TARİH-SAAT EKLEME
-       
-   */
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+
+    const fetchData = async () => {
+        axios.get(`https://draltaynihatacar.com/api/planlar.php?kullaniciId=${userId}&tarih=2020/06/12`)
+            .then(response => {
+                setAllPlans(response.planlar)
+            })
+            .catch(error => {
+                Alert.alert("Life Cycle", "Bir hata oluştu!")
+            })
+
+    }
+    
+    const renderItem = ({item}) => {
+        return (
+            <View>
+                <Text> {item.icerik} </Text>
+            </View>
+        )
+    }
+
 
     function dayPressed(day) {
-        setPlanDate(day)
+        setPlanDate(day.dateString)
         console.log('selected day', planDate)
         setModalVisible(!modalVisible)
     }
@@ -35,8 +53,14 @@ const Plans = () => {
         //push details to allplans
         setModalVisible(false)
         console.log('added?', planDate)
-        setAllPlans(...allPlans, allPlans.push(planDate))
+        setPlanDetail()
+        setPlanText()
     }
+
+    const setPlanText = text => {
+        console.log(text);
+        setPlanDetail(text);
+    };
 
     return (
         <SafeAreaView>
@@ -50,13 +74,13 @@ const Plans = () => {
                     deviceHeight={deviceHeight}
                     onSwipeComplete={() => setModalVisible(false)}
                     swipeDirection="down"
-                    style={{ margin: 15, marginTop: 300, }}
+                    style={{ margin: 15, marginTop: deviceHeight / 2.8, }}
                 >
                     <View style={{ flex: 1, backgroundColor: '#f2f2f2', borderRadius: 20, }}>
                         <View style={{ flex: 1, margin: 20, }}>
 
 
-                       
+
                             <Text
                                 style={{ fontSize: 15 }}
                             >Planım:</Text>
@@ -66,12 +90,7 @@ const Plans = () => {
                                     backgroundColor: '#fefefe', alignItems: 'center'
                                 }}>
 
-                                    <Image source={require('../assets/checklist.png')} />
-                                    <TextInput
-                                        autoCapitalize="none"
-                                        placeholder="Başlık"
-                                        style={{ margin: 0, padding: 3 }}
-                                    />
+
                                 </View>
                                 <View style={{
                                     flexDirection: 'row', margin: 5, borderRadius: 5,
@@ -80,18 +99,28 @@ const Plans = () => {
                                     <Image source={require('../assets/checklist.png')} />
                                     <TextInput
                                         autoCapitalize="none"
+                                        onChangeText={setPlanText}
                                         placeholder="Detay"
-                                        style={{ margin: 0, padding: 3 }}
+                                        style={{
+                                            margin: 0, padding: 3,
+                                            width: deviceWidth / 1.4,
+                                        }}
+                                        multiline
                                     />
                                 </View>
                             </View>
                             <Pressable
                                 style={{
                                     backgroundColor: "#2196F3",
-                                    alignSelf: 'flex-end'
+                                    alignSelf: 'center',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    borderRadius: 5,
+                                    width: 50, height: 30,
+                                    margin: 10,
                                 }}
                                 onPress={() => addPlan()} >
-                                <Text>Ekle</Text>
+                                <Text style={{ color: 'white' }}>Ekle</Text>
                             </Pressable>
                         </View>
                     </View>
@@ -121,9 +150,18 @@ const Plans = () => {
                     }}
                     firstDay={1}
                 />
-                 <Text
-                                style={{ fontSize: 15 }}
-    >{JSON.stringify(planDate)}</Text>
+                <Text
+                    style={{ fontSize: 15 }}
+                >{JSON.stringify(planDate)}</Text>
+                <Text
+                    style={{ fontSize: 15 }}
+                >{planDetail}</Text>
+
+                <FlatList
+                    data={allPlans}
+                    renderItem={renderItem}
+                    keyExtractor={(item, index) => index.toString()}
+                />
             </View>
         </SafeAreaView>
     )

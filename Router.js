@@ -4,13 +4,15 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, HeaderTitle } from '@react-navigation/stack';
 import { Activities, Expenses, Login, Main, Plans, Signup ,LoginControl, CaloriesDetail} from './src/pages';
 import { ActivitiesDetail, ExpensesDetail, PlansDetail } from './src/pages/DETAILS'
-
 import {Calories} from './src/pages/Calories'
+import Provider from './src/context/Provider'
+
 
 const Stack = createStackNavigator();
 
 function Router() {
     return (
+        <Provider>
         <NavigationContainer>
             <Stack.Navigator initialRouteName="LoginControlPage">
                 <Stack.Screen name={"LoginControlPage"} component={LoginControl} options={{ headerShown: false }} />
@@ -27,6 +29,7 @@ function Router() {
                 <Stack.Screen name={"PlansDetail"} component={PlansDetail} />
             </Stack.Navigator>
         </NavigationContainer>
+        </Provider>
     );
 }
 

@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { SafeAreaView, View, Text, Image, Alert } from 'react-native'
 import styles from './styles'
 import { MyButton, MyInput } from '../components';
 import axios from 'axios';
+
 
 import AsyncStorage from '@react-native-community/async-storage';
 const Login = (props) => {
 
     const [mail, setMail] = useState("")
     const [password, setPassword] = useState("")
+    const { state, dispatch } = useContext(Context)
+
 
     useEffect(() => {
 
@@ -40,6 +43,10 @@ const Login = (props) => {
                 .then(function (response) {
                     props.navigation.navigate("Main")
                     AsyncStorage.setItem('@user_mail', mail)
+                    dispatch({ type: "SET_USER_MAIL", mail: mail })
+                    dispatch({ type: "SET_USER_PASSWORD", password: password })
+                    console.log(state.userMail)
+                    console.log(state.userPassword)
                 })
                 .catch(function (error) {
                     console.log(error)

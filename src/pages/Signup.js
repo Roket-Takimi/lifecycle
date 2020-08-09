@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { SafeAreaView, View, Image, Text, Alert } from 'react-native'
 import styles from './styles'
 import { MyInput, MyButton } from '../components/'

@@ -37,4 +37,10 @@ function Router() {
     );
 }
 
-export default Router;
+export default () => {
+    return (
+        <ActivitiesProvider>
+            <Router/>
+        </ActivitiesProvider>
+    )
+}

@@ -2,10 +2,12 @@ import 'react-native-gesture-handler';
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, HeaderTitle } from '@react-navigation/stack';
-import { Activities, Expenses, Login, Main, Plans, Signup ,LoginControl, CaloriesDetail} from './src/pages';
-import { ActivitiesDetail, ExpensesDetail, PlansDetail } from './src/pages/DETAILS'
+import { Activities, AddActivities, ActivitiesDetailPage, ActivitiesEditPage, Expenses, Login, Main, Plans, Signup ,LoginControl, CaloriesDetail} from './src/pages';
+import { ExpensesDetail, PlansDetail } from './src/pages/DETAILS'
 import {Calories} from './src/pages/Calories'
 import Provider from './src/context/Provider'
+
+import {ActivitiesProvider} from './src/context/ActivitiesContext'
 
 
 const Stack = createStackNavigator();
@@ -19,8 +21,10 @@ function Router() {
                 <Stack.Screen name={"Signup"} component={Signup} options={{ headerShown: false }} />
                 <Stack.Screen name={"Login"} component={Login} options={{ headerShown: false }} />
                 <Stack.Screen name={"Main"} component={Main} options={{ headerShown: false }} />
-                <Stack.Screen name={"Activities"} component={Activities} />
-                <Stack.Screen name={"ActivitiesDetail"} component={ActivitiesDetail} options={{ headerTitle: "Aktivite detay" }} />
+                <Stack.Screen name={"Activities"} component={Activities} options={{ headerShown: false }} />
+                <Stack.Screen name={"AddActivities"} component={AddActivities} options={{ headerShown: false }} />
+                <Stack.Screen name={"ActivitiesDetailPage"} component={ActivitiesDetailPage} options={{ headerShown: false }}/>
+                <Stack.Screen name={"ActivitiesEditPage"} component={ActivitiesEditPage} options={{ headerShown: false }} />
                 <Stack.Screen name={"Calories"} component={Calories} options={{ headerShown: false }} />
                 <Stack.Screen name={"CaloriesDetail"} component={CaloriesDetail} options={{ headerTitle: "Besin Değerleri" }} />
                 <Stack.Screen name={"Expenses"} component={Expenses} />

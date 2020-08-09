@@ -1,56 +1,113 @@
-import React, { useState } from 'react'
-import { SafeAreaView, View, TouchableOpacity, Text, FlatList, Dimensions } from 'react-native'
-import styles from './styles'
-import { ActivitiesItem } from './DETAILS/ActivitiesItem'
+import React, { useContext } from 'react';
+import { StyleSheet, View, FlatList, Button, TouchableOpacity } from 'react-native';
 
-const Activities = props => {
-    //Deneme
-    /*
-        TÜM ETKİNLİKLER, TARİH, SAAT ŞEKLİNDE GÖSTERİLİR
-        HARİTADA GÖSTEREBİLİR MİYİZ BAKALIM
-        ARAMA BUTONU
-        TIKLAYINCA DETAY SAYFASINA GİDER
+import {ActivitiesContext} from '../context/ActivitiesContext';
+import { Text, FAB, List } from 'react-native-paper';
+import { Header } from '../components/Header';
+import styles from './styles';
 
-    */
-    const [list,setList]=useState([])
+const Activities = ({navigation}) => {
+  const {state,dispatch} = useContext(ActivitiesContext)
 
-    const [activities,SetActivities] = useState([
-        {id:1,activityName:"İSTANBUL KADIKÖYDE KOŞU",detail:"test 1"},
-        {id:2,activityName:"İSTANBUL MAÇKADA BİSİKLET 2",detail:"test 2"},
-        {id:3,activityName:"ANTALYA MANAVGAT BALIK FESTİVALİ",detail:"test 3"},
-        {id:4,activityName:"İZMİR KORDON YÜZME YARIŞI",detail:"test 4"},
-        {id:5,activityName:"ADANA'DA KEBAP",detail:"Lorem Iwith the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. more recently with desktop"},
-        {id:6,activityName:"URFA MERKEZ HALAY ÇEKME SONRA LAHMACUN ",detail:"test 6"},
-        {id:7,activityName:"BURSA ORMANKADI DOĞA YÜRÜYÜŞÜ ",detail:"test 7"},
-        {id:8,activityName:"ORDU AKKUŞ FINDIK TOPLAMA ",detail:"test 8"}
-    ])
+  return (
 
-    const renderItems = ({item}) => {
-        return <ActivitiesItem propsData={item} pressHandler={activitiesPress} />
-    }
+    <>
+    <Header titleText = 'Aktiviteler' />
+    {/* <FAB
+        icon = "close"
+        small
+        color = 'white'
+        onPress = { () => navigation.goBack()}
+        style = {styles.iconButton}
+    /> */}
+    <View style={styless.container}>
 
-    function activitiesPress(item) {
-        props.navigation.navigate('ActivitiesDetail',{data:item})
-    }
+  
+        {/* <Button title="add" onPress={()=>dispatch({type:"ADD"})}/> */}
+        <FlatList
+            data={state}
+            keyExtractor={item=>item.title}
+            renderItem={ ({item}) => {
+              return (
+                
+                <TouchableOpacity onPress = { () => navigation.navigate("ActivitiesDetailPage", {id:item.id} )}>
+                <View style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    marginHorizontal: 10,
+                    marginBottom: 5,
+                    backgroundColor: 'white',
+                    padding: 10,
+                    elevation: 4,
+                }}>
+                  <View>
+                      <Text style={{fontSize: 22}}>{item.title}</Text>
+                      {/* <Text style={{fontSize: 14}}>{item.content}</Text> */}
+                  </View>
+                
+                <FAB 
+                  style={{
+                    backgroundColor: '#448AFF',
+                    justifyContent: 'center',
+                  }}
+                  icon = 'delete'
+                  small
+                  onPress = { () => dispatch({type:"REMOVE", option:item.id}) }
+                />
+                </View>
+                </TouchableOpacity>
+                )
+            }}
 
-    return (
-        <SafeAreaView style={styles.activity.mainView} >
+        />
 
-            <View style={styles.activity.headerView} >
-                <Text style={styles.activity.headerText} >AKTİVİTE GÖR</Text>
-            </View>
-
-            <FlatList
-                data={activities}
-                keyExtractor={(_,index) => index.toString()}
-                renderItem={renderItems}
-                numColumns={2}
-            />
-
-
-        </SafeAreaView>
-
-    )
+        <FAB 
+          style={styless.fab}
+          small
+          icon = 'plus'
+          label = 'Aktivite Oluştur'
+          onPress = { () => navigation.navigate('AddActivities') }
+        />
+        
+    </View>
+    </>
+  )
 }
+ 
+export {Activities}
 
-export { Activities }
+const styless = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    paddingVertical: 20,
+    paddingHorizontal: 10,
+  },
+  titleContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+  },
+  title: {
+    fontSize: 20,
+  },
+  iconButton: {
+      backgroundColor: '#219653',
+      position: 'absolute',
+      right: 0,
+      top: 40,
+      margin: 10
+  },
+  fab: {
+    backgroundColor: '#448AFF',
+    position: 'absolute',
+    margin: 20,
+    right: 0,
+    bottom: 10,
+  },
+  listTitle: {
+    fontSize: 20,
+  }
+})
+
+

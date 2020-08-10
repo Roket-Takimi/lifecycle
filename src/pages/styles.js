@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Dimensions} from 'react-native';
+import {StyleSheet, Dimensions, Platform} from 'react-native';
 
 const styles = {
     //Login Page Start
@@ -185,7 +185,6 @@ const styles = {
             display: 'flex',
             alignItems: 'center',
             textAlign: 'center',
-
             color: 'black',
             fontSize:Dimensions.get('window').fontScale *20
         },
@@ -206,7 +205,7 @@ const styles = {
         wrap: {
             borderColor: '#ccc', 
             borderWidth: 1, 
-            padding: 20,
+            padding: 14,
             marginVertical: 5, 
             marginHorizontal: 10, 
             borderRadius: 30, 
@@ -360,7 +359,25 @@ const styles = {
           modalText: {
             marginBottom: 15,
             textAlign: "center"
-          }
+          },
+          safeAreaViewStyle: {
+            flex: 1,
+            backgroundColor: "#fff"
+          },
+          flatListStyle: {
+            marginTop: 12
+          },
+          container: {
+            ...Platform.select({
+                android: {
+                  top: 24
+                }
+              }),
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "#fff"
+          },
 
     }),
     //Calorie Page End

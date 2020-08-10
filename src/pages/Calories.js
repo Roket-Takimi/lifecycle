@@ -1,10 +1,10 @@
 import axios from 'axios';
 import React, { useState, useEffect, useRef } from 'react'
-import { SafeAreaView, View, TouchableOpacity, Text, FlatList} from 'react-native'
+import { SafeAreaView, View, LayoutAnimation, TouchableOpacity, Text, FlatList, StatusBar} from 'react-native'
 import styles from './styles'
-import {SearchBar} from '../components'
+import SearchBar from "react-native-dynamic-search-bar";
 import { Transitioning, Transition } from 'react-native-reanimated';
-
+import { CustomLayoutSpring } from "react-native-animation-layout";
 import {CaloriesItem} from './DETAILS/CaloriesItem'
 import { Header } from '../components/Header';
 
@@ -71,29 +71,35 @@ const Calories = props => {
 
     return(
         <>
-        <Header titleText = 'Kalorilerini Öğren' /> 
-        <SafeAreaView style={styles.calorie.mainView}>
-          
-            {/* <View style={styles.calorie.headerView}>
-                <Text style={styles.calorie.headerText}>KALORİLERİNİ ÖĞREN</Text>
-            </View> */}
-
+        <SafeAreaView style={styles.calorie.safeAreaViewStyle}>
+          <StatusBar barStyle={"dark-content"} backgroundColor="#fff"/>
+          <View style={styles.calorie.container}>
             <SearchBar
-                changeText={searchItems}
-                searchBarPlaceHolder={'Arama Yapınız...'}
+              onPressToFocus
+              autoFocus={false}
+              fontColor= 'black'
+              iconColor="black"
+              shadowColor="#282828"
+              cancelIconColor="black"
+              backgroundColor="#fff"
+              placeholder="Ara"
+              onChangeText={searchItems}
             />
-
-        <Transitioning.View ref={transitionRef} transition={transition} style={{ flex: 1 }}>   
-        <FlatList
-            //refreshing={loading}
-            //onRefresh={fetchData}
-            keyExtractor={(item, index) => index.toString()}
-            data={foodList}
-            renderItem={renderItems}
-        />
-        </Transitioning.View>
-
+            
+            <Transitioning.View ref={transitionRef} transition={transition} style={styles.calorie.flatListStyle}>   
+              <FlatList
+                  //refreshing={loading}
+                  //onRefresh={fetchData}
+                  keyExtractor={(item, index) => index.toString()}
+                  data={foodList}
+                  renderItem={renderItems}
+              />
+            </Transitioning.View>
+           
+          </View>
         </SafeAreaView>
+
+        
         </>
     )
 }

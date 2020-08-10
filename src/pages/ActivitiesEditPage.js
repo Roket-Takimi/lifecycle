@@ -8,7 +8,7 @@ import { Header } from '../components/Header';
 const ActivitiesEditPage = ( {navigation, route} ) => {
 
     const {id} = route.params;
-    console.log(id);
+    // console.log(id);
     
     const {state,dispatch} = useContext(ActivitiesContext)
 
@@ -54,15 +54,6 @@ const ActivitiesEditPage = ( {navigation, route} ) => {
                     navigation.navigate("Activities");
                 }}
             />
-
-            {/* <FAB 
-                style={styless.fab}
-                small
-                icon = 'check'
-                label = 'Düzenle'
-                onPress = { () => navigation.navigate('AddActivities') }
-            /> */}
-
         </View>
         </>
     )

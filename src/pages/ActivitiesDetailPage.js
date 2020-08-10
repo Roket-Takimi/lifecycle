@@ -8,7 +8,7 @@ import { Header } from '../components/Header';
 const ActivitiesDetailPage = ( {route, navigation} ) => {
 
     const {id} = route.params
-    console.log(id);
+    // console.log(id);
     const {state} = useContext(ActivitiesContext)
 
     const activitie = state.find((record) => {

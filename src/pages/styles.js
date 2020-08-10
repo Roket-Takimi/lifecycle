@@ -203,12 +203,24 @@ const styles = {
             justifyContent:'center',
             margin: Dimensions.get('window').height / (10 / 0.3),
         },
+        wrap: {
+            borderColor: '#ccc', 
+            borderWidth: 1, 
+            padding: 20,
+            marginVertical: 5, 
+            marginHorizontal: 10, 
+            borderRadius: 30, 
+            backgroundColor: '#448AFF',
+            shadowColor: '#448AFF',
+            shadowOffset:  {width: 3,height: 3}, 
+            shadowOpacity: 0.2,
+        },
         calorieItem:{
-            width: Dimensions.get('window').width * 0.9,
-            height: Dimensions.get('window').height * 0.08,
-            backgroundColor:'#448AFF',
+            width: Dimensions.get('window').width * 0.7,
+            height: Dimensions.get('window').height * 0.05,
+            backgroundColor:'#6f74dd',
             borderRadius: 30,
-            margin: 20,
+            margin: 10,
             alignSelf: 'center',
             justifyContent: 'center',
             elevation: 2,
@@ -228,7 +240,15 @@ const styles = {
             alignItems: 'center',
             fontSize: 14,
             fontWeight: 'bold',
+            color: '#fff',
+        },
+        calorieText2: {
+            alignSelf: 'center',
+            alignItems: 'center',
+            fontSize: 14,
+            fontWeight: 'bold',
             color: '#ffffff',
+            textTransform: 'uppercase',
         },
         image: {
             resizeMode: 'contain',
@@ -304,7 +324,43 @@ const styles = {
             height: 40,
             borderRadius: 15,
             resizeMode: 'contain'
-        }
+        },
+        centeredView: {
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: 22
+          },
+          modalView: {
+            margin: 20,
+            backgroundColor: "white",
+            borderRadius: 20,
+            padding: 35,
+            alignItems: "center",
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 2
+            },
+            shadowOpacity: 0.25,
+            shadowRadius: 3.84,
+            elevation: 5
+          },
+          openButton: {
+            backgroundColor: "#F194FF",
+            borderRadius: 20,
+            padding: 10,
+            elevation: 2
+          },
+          textStyle: {
+            color: "white",
+            fontWeight: "bold",
+            textAlign: "center"
+          },
+          modalText: {
+            marginBottom: 15,
+            textAlign: "center"
+          }
 
     }),
     //Calorie Page End

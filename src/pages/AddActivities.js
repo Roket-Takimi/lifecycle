@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { StyleSheet, SafeAreaView, View, TouchableOpacity, FlatList, ImageBackground, Image} from 'react-native'
+import { StyleSheet, SafeAreaView, View, TouchableOpacity, StatusBar, ImageBackground, Image} from 'react-native'
 import {ActivitiesContext} from '../context/ActivitiesContext';
 import {useTheme} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -80,6 +80,7 @@ const AddActivities = ( {navigation} ) => {
 
     return(
         <>
+        <StatusBar barStyle="light-content" backgroundColor= "white"/>
         <Header titleText = 'Aktivite Oluştur' />            
         <View style={{flex:1}}>
 

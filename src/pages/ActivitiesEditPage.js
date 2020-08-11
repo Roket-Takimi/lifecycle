@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { StyleSheet, SafeAreaView, View, TouchableOpacity, FlatList, Dimensions, } from 'react-native'
+import { StyleSheet, SafeAreaView, View, StatusBar } from 'react-native'
 import {ActivitiesContext} from '../context/ActivitiesContext';
 
 import { Text, IconButton, TextInput, FAB } from 'react-native-paper';
@@ -17,9 +17,11 @@ const ActivitiesEditPage = ( {navigation, route} ) => {
     })
     const [title, setTitle] = useState(EditAct.title)
     const [content, setContent] = useState(EditAct.content)
+    const [image, setImage] = useState(EditAct.image);
 
     return (
         <>
+        <StatusBar barStyle="light-content" backgroundColor= "white"/>
         <Header titleText = 'Aktivitenizi Düzenleyin' /> 
         <View style={{flex:1, margin: 8}}>
 
@@ -50,7 +52,7 @@ const ActivitiesEditPage = ( {navigation, route} ) => {
                 label = 'Düzenle'
                 disabled = {title == '' ? true : false}
                 onPress = { () => {
-                    dispatch({type:"UPDATE", option:{id,title,content}}) 
+                    dispatch({type:"UPDATE", option:{id,title,content,image}}) 
                     navigation.navigate("Activities");
                 }}
             />

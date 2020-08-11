@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { StyleSheet, View, Image, ScrollView } from 'react-native'
+import { StyleSheet, View, Image, ScrollView, StatusBar } from 'react-native'
 import {ActivitiesContext} from '../context/ActivitiesContext';
 
 import { Text, IconButton, TextInput, FAB } from 'react-native-paper';
@@ -17,27 +17,31 @@ const ActivitiesDetailPage = ( {route, navigation} ) => {
 
     return (
         <>
+        <StatusBar barStyle="light-content" backgroundColor= "white"/>
         <Header titleText = 'Aktivite Detay' /> 
-        <View style={styless.container}>
+        <ScrollView>
+          <View style={styless.container}>
 
-            <Image
-                style={{ width: "250%", height: 350, resizeMode: 'contain'}}
-                resizeMode="contain"
-                source={{uri: activitie.image}}
-            />
+              <Image
+                  style={{ width: "250%", height: 350, resizeMode: 'contain'}}
+                  resizeMode="contain"
+                  source={{uri: activitie.image}}
+              />
 
-            <Text>Başlık: {activitie.title}</Text>
-            <Text>Detay: {activitie.content}</Text>
+              <Text style={{fontSize: 22, fontWeight: 'bold', margin: 10,}}>{activitie.title}</Text>
+              <Text style={{fontSize: 14, marginLeft: 5, marginBottom: 85}}>Detay: {activitie.content}</Text>
+              
 
-            <FAB 
-                style={styless.fab}
-                small
-                icon = 'plus'
-                label = 'Aktiviteyi Düzenle'
-                onPress = { () => navigation.navigate('ActivitiesEditPage', {id}) }
-            />
+              <FAB 
+                  style={styless.fab}
+                  small
+                  icon = 'plus'
+                  label = 'Aktiviteyi Düzenle'
+                  onPress = { () => navigation.navigate('ActivitiesEditPage', {id}) }
+              />
 
-        </View>
+          </View>
+        </ScrollView>
         </>
     )
 }
@@ -47,7 +51,6 @@ export {ActivitiesDetailPage}
 const styless = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
       alignItems: 'center'
     },
     titleContainer: {
@@ -69,6 +72,7 @@ const styless = StyleSheet.create({
       backgroundColor: '#448AFF',
       position: 'absolute',
       margin: 20,
+      marginTop: 40,
       right: 0,
       bottom: 10,
     },

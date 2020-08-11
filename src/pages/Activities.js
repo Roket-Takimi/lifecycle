@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { StyleSheet, View, FlatList, Button, TouchableOpacity, Dimensions } from 'react-native';
+import { StyleSheet, View, FlatList, StatusBar, TouchableOpacity, Dimensions } from 'react-native';
 
 import {ActivitiesContext} from '../context/ActivitiesContext';
 import { Text, FAB, List } from 'react-native-paper';
@@ -12,6 +12,7 @@ const Activities = ({navigation}) => {
   return (
 
     <>
+    <StatusBar barStyle="light-content" backgroundColor= "white"/>
     <Header titleText = 'Aktiviteler' />
     {/* <FAB
         icon = "close"
@@ -35,14 +36,14 @@ const Activities = ({navigation}) => {
                     flex: 1,
                     flexDirection: 'row',
                     justifyContent: 'space-between',
-                    marginHorizontal: 10,
-                    marginBottom: 5,
+                    marginHorizontal: 5,
+                    marginBottom: 10,
                     backgroundColor: 'white',
                     padding: 10,
                     elevation: 4,
                 }}>
-                      <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
-                          <Text style={{fontSize: 22}}>{item.title}</Text>
+                      <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', }}>
+                          <Text style={{fontSize: 18, fontWeight: 'bold', }}>{item.title}</Text>
                           {/* <Text style={{fontSize: 22}}>{item.image}</Text> */}
                           {/* <Text style={{fontSize: 14}}>{item.content}</Text> */}
                       

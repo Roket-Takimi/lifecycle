@@ -4,6 +4,7 @@ import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 import Modal from 'react-native-modal';
 import axios from 'axios'
 import moment from 'moment'
+import CheckBox from '@react-native-community/checkbox';
 
 
 
@@ -18,6 +19,7 @@ const Plans = () => {
     const massage = { key: 'massage', color: 'blue', selectedDotColor: 'blue' };
     const workout = { key: 'workout', color: 'green' };
     const userId = 1
+    const [toggleCheckBox, setToggleCheckBox] = useState(false)
 
     useEffect(() => {
         fetchData()
@@ -25,11 +27,11 @@ const Plans = () => {
 
 
     const fetchData = async () => {
-        axios.get(`https://draltaynihatacar.com/api/planlar.php?kullaniciId=${userId}&tarih=2020/06/12`)
+        axios.get(`https://draltaynihatacar.com/api/planlar.php?person_id=${userId}`)
             .then(response => {
-                setAllPlans(response.data.planlar)
-                console.log(response.data.planlar)
-               
+                setAllPlans(response.data.aktiviteler)
+                console.log(response.data.aktiviteler)
+
             })
             .catch(error => {
                 Alert.alert("Life Cycle", "Bir hata oluştu!")
@@ -38,14 +40,28 @@ const Plans = () => {
     }
 
     const renderItem = ({ item }) => {
-        var idLocale = require('moment/locale/tr'); 
+        var idLocale = require('moment/locale/tr');
         moment.locale('tr', idLocale);
-        
+
         return (
-            <View>
-                <Text> {moment(item.tarih).format("D MMMM, YYYY, dddd")} </Text>
-                <Text> {item.icerik} </Text>
+            <View style={{
+                width: Dimensions.get("window").width / 1.20,
+                //                borderTopColor: 'gray',
+                //                borderTopWidth: 1,
+            }}>
+
+                <CheckBox
+                    disabled={false}
+                    value={toggleCheckBox}
+                    onValueChange={(newValue) => setToggleCheckBox(newValue)}
+                />
+
+                <Text > {moment(item.tarih).format("D MMMM, YYYY, dddd")} </Text>
+
+
+                <Text > {item.icerik} </Text>
             </View>
+
         )
     }
 
@@ -59,8 +75,8 @@ const Plans = () => {
     function addPlan() {
         //push details to allplans
         setModalVisible(false)
-      //  console.log('added?', planDate)
-      //  console.log(moment(planDate).calendar("D MMMM, YYYY"))
+        //  console.log('added?', planDate)
+        //  console.log(moment(planDate).calendar("D MMMM, YYYY"))
         moment.locale('es'); // change the global locale to Spanish
         console.log(moment(planDate).format("D MMMM, YYYY, dddd")); // Domingo 15 Julio 2012 11:01
 

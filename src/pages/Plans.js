@@ -6,6 +6,7 @@ import axios from 'axios'
 import moment from 'moment'
 
 
+
 const Plans = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const [planDetail, setPlanDetail] = useState("")
@@ -28,17 +29,21 @@ const Plans = () => {
             .then(response => {
                 setAllPlans(response.data.planlar)
                 console.log(response.data.planlar)
+               
             })
             .catch(error => {
                 Alert.alert("Life Cycle", "Bir hata oluştu!")
             })
 
     }
-    
-    const renderItem = ({item}) => {
+
+    const renderItem = ({ item }) => {
+        var idLocale = require('moment/locale/tr'); 
+        moment.locale('tr', idLocale);
+        
         return (
             <View>
-                <Text> {item.tarih} </Text>
+                <Text> {moment(item.tarih).format("D MMMM, YYYY, dddd")} </Text>
                 <Text> {item.icerik} </Text>
             </View>
         )
@@ -54,7 +59,11 @@ const Plans = () => {
     function addPlan() {
         //push details to allplans
         setModalVisible(false)
-        console.log('added?', planDate)
+      //  console.log('added?', planDate)
+      //  console.log(moment(planDate).calendar("D MMMM, YYYY"))
+        moment.locale('es'); // change the global locale to Spanish
+        console.log(moment(planDate).format("D MMMM, YYYY, dddd")); // Domingo 15 Julio 2012 11:01
+
         setPlanDetail()
         setPlanText()
     }
@@ -85,7 +94,7 @@ const Plans = () => {
 
                             <Text
                                 style={{ fontSize: 15 }}
-                            >Planım:</Text>
+                            >Plan:</Text>
                             <View>
                                 <View style={{
                                     flexDirection: 'row', margin: 5, borderRadius: 5,

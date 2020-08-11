@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { StyleSheet, View, FlatList, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, FlatList, Button, TouchableOpacity, Dimensions } from 'react-native';
 
 import {ActivitiesContext} from '../context/ActivitiesContext';
 import { Text, FAB, List } from 'react-native-paper';
@@ -32,6 +32,7 @@ const Activities = ({navigation}) => {
                 
                 <TouchableOpacity onPress = { () => navigation.navigate("ActivitiesDetailPage", {id:item.id} )}>
                 <View style={{
+                    flex: 1,
                     flexDirection: 'row',
                     justifyContent: 'space-between',
                     marginHorizontal: 10,
@@ -40,20 +41,28 @@ const Activities = ({navigation}) => {
                     padding: 10,
                     elevation: 4,
                 }}>
-                  <View>
-                      <Text style={{fontSize: 22}}>{item.title}</Text>
-                      {/* <Text style={{fontSize: 14}}>{item.content}</Text> */}
-                  </View>
+                      <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
+                          <Text style={{fontSize: 22}}>{item.title}</Text>
+                          {/* <Text style={{fontSize: 22}}>{item.image}</Text> */}
+                          {/* <Text style={{fontSize: 14}}>{item.content}</Text> */}
+                      
+                      </View>
                 
-                <FAB 
-                  style={{
-                    backgroundColor: '#448AFF',
-                    justifyContent: 'center',
-                  }}
-                  icon = 'delete'
-                  small
-                  onPress = { () => dispatch({type:"REMOVE", option:item.id}) }
-                />
+                      <View style={{alignItems: 'center', justifyContent: 'center', marginLeft: 10}}>
+                        <FAB 
+                            style={{
+                              backgroundColor: '#448AFF',
+                              justifyContent: 'center',
+                              alignItems: 'center',
+                              height: Dimensions.get('window').height / (10 / 0.55),
+                            }}
+                            icon = 'delete'
+                            small
+                            onPress = { () => dispatch({type:"REMOVE", option:item.id}) }
+                        />
+                      </View>
+                      
+
                 </View>
                 </TouchableOpacity>
                 )

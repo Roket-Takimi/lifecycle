@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { StyleSheet, SafeAreaView, View, TouchableOpacity, FlatList, Dimensions, } from 'react-native'
+import { StyleSheet, View, Image, ScrollView } from 'react-native'
 import {ActivitiesContext} from '../context/ActivitiesContext';
 
 import { Text, IconButton, TextInput, FAB } from 'react-native-paper';
@@ -19,8 +19,15 @@ const ActivitiesDetailPage = ( {route, navigation} ) => {
         <>
         <Header titleText = 'Aktivite Detay' /> 
         <View style={styless.container}>
-            <Text>{activitie.title}</Text>
-            <Text>{activitie.content}</Text>
+
+            <Image
+                style={{ width: "250%", height: 350, resizeMode: 'contain'}}
+                resizeMode="contain"
+                source={{uri: activitie.image}}
+            />
+
+            <Text>Başlık: {activitie.title}</Text>
+            <Text>Detay: {activitie.content}</Text>
 
             <FAB 
                 style={styless.fab}
@@ -41,8 +48,7 @@ const styless = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: '#fff',
-      paddingVertical: 20,
-      paddingHorizontal: 10,
+      alignItems: 'center'
     },
     titleContainer: {
       alignItems: 'center',

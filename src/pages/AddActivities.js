@@ -163,17 +163,10 @@ const AddActivities = ( {navigation} ) => {
                 icon = "check"
                 disabled = {title == '' ? true : false}
                 onPress = { () => {
-                    dispatch({type:"ADD", option:{title,content}}) 
+                    dispatch({type:"ADD", option:{title,content,image}}) 
                     navigation.goBack();
                 }}
             />
-
-            <Image
-                            style={{ width: 50, height: 50, marginRight: 10}}
-                            resizeMode="contain"
-                            source={{uri: image}}
-                        
-                            />
 
         </View>
         </>
@@ -264,7 +257,7 @@ const styles = StyleSheet.create({
   panelButton: {
     padding: 13,
     borderRadius: 10,
-    backgroundColor: '#FF6347',
+    backgroundColor: '#448AFF',
     alignItems: 'center',
     marginVertical: 7,
   },

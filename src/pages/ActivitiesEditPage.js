@@ -88,7 +88,7 @@ const styless = StyleSheet.create({
       marginBottom: 16,
     },
     text: {
-      height: 150,
+      height: 250,
       marginBottom: 16,
     },
     fab: {

@@ -12,7 +12,7 @@ const Activities = ({navigation}) => {
   return (
 
     <>
-    <StatusBar barStyle="light-content" backgroundColor= "white"/>
+    <StatusBar barStyle="dark-content" backgroundColor= "white"/>
     <Header titleText = 'Aktiviteler' />
     {/* <FAB
         icon = "close"

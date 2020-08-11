@@ -17,7 +17,7 @@ const ActivitiesDetailPage = ( {route, navigation} ) => {
 
     return (
         <>
-        <StatusBar barStyle="light-content" backgroundColor= "white"/>
+        <StatusBar barStyle="dark-content" backgroundColor= "white"/>
         <Header titleText = 'Aktivite Detay' /> 
         <ScrollView>
           <View style={styless.container}>

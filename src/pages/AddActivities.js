@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { StyleSheet, SafeAreaView, View, TouchableOpacity, StatusBar, ImageBackground, Image} from 'react-native'
+import { StyleSheet, View, TouchableOpacity, StatusBar, ImageBackground, Button, Platform} from 'react-native'
 import {ActivitiesContext} from '../context/ActivitiesContext';
 import {useTheme} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -8,6 +8,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import BottomSheet from 'reanimated-bottom-sheet';
 import Animated from 'react-native-reanimated';
 import ImagePicker from 'react-native-image-crop-picker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 import { Text, IconButton, TextInput, FAB } from 'react-native-paper';
 import { Header } from '../components/Header';
@@ -47,7 +48,7 @@ const AddActivities = ( {navigation} ) => {
       });
     }
 
-    renderInner = () => (
+    const renderInner = () => (
       <View style={styles.panel}>
         <View style={{alignItems: 'center'}}>
           <Text style={styles.panelTitle}>Fotoğraf Yükle</Text>
@@ -67,7 +68,7 @@ const AddActivities = ( {navigation} ) => {
       </View>
     );
 
-    renderHeader = () => (
+    const renderHeader = () => (
       <View style={styles.header}>
         <View style={styles.panelHeader}>
           <View style={styles.panelHandle} />
@@ -75,12 +76,36 @@ const AddActivities = ( {navigation} ) => {
       </View>
     );
 
-    bs = React.createRef();
-    fall = new Animated.Value(1);
+    const bs = React.createRef();
+    const fall = new Animated.Value(1);
+
+    const [date, setDate] = useState(new Date());
+    const [mode, setMode] = useState('date');
+    const [show, setShow] = useState(false);
+
+    const onChange = (event, selectedDate) => {
+      const currentDate = selectedDate || date;
+      setShow(Platform.OS === 'ios');
+      setDate(currentDate);
+    };
+
+    const showMode = (currentMode) => {
+      setShow(true);
+      setMode(currentMode);
+    };
+
+    const showDatepicker = () => {
+      showMode('date');
+      console.log(date);
+    };
+
+    const showTimepicker = () => {
+      showMode('time');
+    };
 
     return(
         <>
-        <StatusBar barStyle="light-content" backgroundColor= "white"/>
+        <StatusBar barStyle="dark-content" backgroundColor= "white"/>
         <Header titleText = 'Aktivite Oluştur' />            
         <View style={{flex:1}}>
 
@@ -157,6 +182,20 @@ const AddActivities = ( {navigation} ) => {
                 blurOnSubmit = {true}
                 style = {styles.text}
             />
+
+     
+            <Button  onPress={showDatepicker} title="Tarih" />
+            {/* <Button onPress={showTimepicker} title="Show time picker!" /> */}
+            {show && (
+                <DateTimePicker
+                  testID="dateTimePicker"
+                  value={date}
+                  mode={mode}
+                  is24Hour={true}
+                  display="default"
+                  onChange={onChange}
+                />
+            )}
 
             <FAB
                 style = {styles.fab}

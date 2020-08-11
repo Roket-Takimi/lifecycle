@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import {StyleSheet,TextInput,Text,Button,View} from 'react-native';
 import { sub } from 'react-native-reanimated';
 
-export default function addPara({submitHandler}){
+const addPara   =  ({submitHandler}) =>   {
     const[text,setText]=useState('');
     const changeHandler=(val)=>{
         setText(val)
@@ -28,3 +28,4 @@ const styles =StyleSheet.create({
         borderBottomColor:'#ddd'
     }
 })
+export{addPara}

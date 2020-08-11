@@ -74,7 +74,7 @@
 
 // export {Main}
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {Text, View, SafeAreaView , Image} from 'react-native'
 import styles from './styles'
 import {MyButton} from '../components/'
@@ -82,12 +82,25 @@ import AsyncStorage from '@react-native-community/async-storage';
 const Main = (props) => {
     const goCalories = () => props.navigation.navigate("Calories")
     const goActivities = () => props.navigation.navigate("Activities")
+
+    const [kullaniciId,setKullaniciId] = useState(0)
     const goPlans = () => props.navigation.navigate("Plans")
     const goExpenses = () => props.navigation.navigate("Expenses")
     const logOut = () => {
         AsyncStorage.removeItem("@user_mail");
+        AsyncStorage.removeItem("@user_id");
         props.navigation.navigate("Login");
     }
+    useEffect(() => {
+        getPersonId()
+    },[])
+
+    const getPersonId =async () => {
+        var id =await AsyncStorage.getItem("@user_id")
+        console.log(id)
+        setKullaniciId(id)
+    }
+    var yazi = "Çıkış Yap"
     return(
     <SafeAreaView style={styles.main.mainView}>
         <View style={styles.main.logoView}>
@@ -128,7 +141,14 @@ const Main = (props) => {
             </View>
             <View style={styles.main.menuRow}>
                 <MyButton
-                text="Çıkış Yap"
+                text={yazi}
+                stil={styles.main.menuCikisYapColumn}
+                stiltxt={styles.main.menuText}
+                press={logOut}
+
+                />
+                 <MyButton
+                text={kullaniciId}
                 stil={styles.main.menuCikisYapColumn}
                 stiltxt={styles.main.menuText}
                 press={logOut}

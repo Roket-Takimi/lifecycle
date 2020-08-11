@@ -8,11 +8,11 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-community/async-storage';
 const Login = (props) => {
 
+    const [personId,setPersonId] = useState(0)
     const [mail, setMail] = useState("")
     const [password, setPassword] = useState("")
     const { state, dispatch } = useContext(Context)
-
-
+    
     useEffect(() => {
 
     }, [])
@@ -35,14 +35,29 @@ const Login = (props) => {
     const changeMail = (text) => setMail(text) // Mail inputundaki veriyi state atan fonksiyon
     const changePassword = (text) => setPassword(text) // Password inputundaki veriyi state e atan fonksiyon
 
+    const saveAsync = async(mail,id) => {
+        try{
+            await AsyncStorage.setItem('@user_mail',mail)
+            await AsyncStorage.setItem('@user_id',id)
+        }catch(e){
+            Alert.alert(e)
+        }
+    }
+
     const loginYap = () => {
         if ((mail == "") || (password == "")) {
             Alert.alert("Mail veya şifre alanı boş bırakılamaz.")
         } else {
             axios.get(`https://draltaynihatacar.com/api/kodluyoruz_kullanici.php?mail=${mail}&password=${password}`)
                 .then(function (response) {
+                    console.log(response.data.kullanici.id)
+                    Alert.alert("Kullanıcı Id",response.data.kullanici.id)
+                    let id = response.data.kullanici.id
+                    saveAsync(mail,id)
+                    //setPersonId(response.data.kullanici.id)
                     props.navigation.navigate("Main")
-                    AsyncStorage.setItem('@user_mail', mail)
+                    //AsyncStorage.setItem("@user_id",personId)
+                    //AsyncStorage.setItem('@user_mail', mail)
                     dispatch({ type: "SET_USER_MAIL", mail: mail })
                     dispatch({ type: "SET_USER_PASSWORD", password: password })
                     console.log(state.userMail)
@@ -117,6 +132,7 @@ const Login = (props) => {
                     press={goSignUp}
 
                 />
+                
             </View>
         </SafeAreaView>
     )

@@ -79,12 +79,13 @@ import {Text, View, SafeAreaView , Image} from 'react-native'
 import styles from './styles'
 import {MyButton} from '../components/'
 import AsyncStorage from '@react-native-community/async-storage';
+
 const Main = (props) => {
     const goCalories = () => props.navigation.navigate("Calories")
     const goActivities = () => props.navigation.navigate("Activities")
 
     const [kullaniciId,setKullaniciId] = useState(0)
-    const goPlans = () => props.navigation.navigate("Plans")
+    const goPlans = () => props.navigation.navigate("Plans", {id: kullaniciId})
     const goExpenses = () => props.navigation.navigate("Expenses")
     const logOut = () => {
         AsyncStorage.removeItem("@user_mail");
@@ -100,6 +101,7 @@ const Main = (props) => {
         console.log(id)
         setKullaniciId(id)
     }
+    
     var yazi = "Çıkış Yap"
     return(
     <SafeAreaView style={styles.main.mainView}>

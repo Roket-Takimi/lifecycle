@@ -9,10 +9,6 @@ export function reducer(state, action) {
             state.userMail = action.mail
             return { ...state }
 
-        case "SET_USER_PASSWORD":
-            state.userPassword = action.password
-            return { ...state }
-
         default:
             return state
     }

@@ -39,6 +39,10 @@ const Login = (props) => {
         try{
             await AsyncStorage.setItem('@user_mail',mail)
             await AsyncStorage.setItem('@user_id',id)
+            dispatch({ type: "SET_USER_MAIL", mail: mail })
+            dispatch({ type: "SET_USER_ID", id: id })
+            console.log(state.userMail)
+            console.log(state.userId)
         }catch(e){
             Alert.alert(e)
         }
@@ -58,10 +62,7 @@ const Login = (props) => {
                     props.navigation.navigate("Main")
                     //AsyncStorage.setItem("@user_id",personId)
                     //AsyncStorage.setItem('@user_mail', mail)
-                    dispatch({ type: "SET_USER_MAIL", mail: mail })
-                    dispatch({ type: "SET_USER_PASSWORD", password: password })
-                    console.log(state.userMail)
-                    console.log(state.userPassword)
+                   
                 })
                 .catch(function (error) {
                     console.log(error)

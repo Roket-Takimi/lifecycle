@@ -9,7 +9,8 @@ import axios from 'axios'
 import moment from 'moment'
 import CheckBox from '@react-native-community/checkbox';
 import AsyncStorage from '@react-native-community/async-storage';
-
+import styles from './styles'
+import { LocaleConfig } from 'react-native-calendars';
 
 
 const Plans = (props) => {
@@ -18,6 +19,7 @@ const Plans = (props) => {
     const [planDate, setPlanDate] = useState("")
     const [allPlans, setAllPlans] = useState([])
     const [isDone, setIsDone] = useState(false)
+    const [calDates, setCalDates] = useState({})
     const deviceWidth = Dimensions.get("window").width;
     const deviceHeight = Dimensions.get("window").height;
     const vacation = { key: 'vacation', color: 'red', selectedDotColor: 'blue' };
@@ -25,7 +27,7 @@ const Plans = (props) => {
     const workout = { key: 'workout', color: 'green' };
     const userId = JSON.stringify(props.route.params.kullaniciId)
     const [toggleCheckBox, setToggleCheckBox] = useState(false)
-    const [kullaniciId, setKullaniciId] = useState(0)
+    const [kullaniciId, setKullaniciId] = useState(1)
 
     useEffect(() => {
         fetchData();
@@ -34,13 +36,15 @@ const Plans = (props) => {
 
 
     const fetchData = async () => {
-        var id = await AsyncStorage.getItem("@user_id")
-        console.log(id)
-        setKullaniciId(id)
+        // var id = await AsyncStorage.getItem("@user_id")
+        //   console.log(id)
+        //  setKullaniciId(id)
         await axios.get(`https://draltaynihatacar.com/api/planlar.php?person_id=${kullaniciId}`)
             .then(response => {
                 setAllPlans(response.data.aktiviteler)
                 console.log(response.data.aktiviteler)
+                setCalDates(JSON.stringify(allPlans.map(el => el.tarih)))
+                console.log(calDates)
 
             })
             .catch(error => {
@@ -49,27 +53,45 @@ const Plans = (props) => {
 
     }
 
+
+    LocaleConfig.locales['tr'] = {
+        monthNames: ['Ocak', 'Şubat', 'Mart', 'Nisan', 'Mayıs', 'Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'],
+        monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+        dayNames: ['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi'],
+        dayNamesShort: ['Pzr.', 'Pts.', 'Sal.', 'Çarş.', 'Perş.', 'Cum.', 'Cts.'],
+        today: 'Aujourd\'hui'
+    };
+    LocaleConfig.defaultLocale = 'tr';
+
     const renderItem = ({ item }) => {
         var idLocale = require('moment/locale/tr');
         moment.locale('tr', idLocale);
 
         return (
             <View style={{
+                height: Dimensions.get('window').height / 10,
+                margin: 10,
+                alignSelf: 'center',
+                backgroundColor: '#448AFF',
+                borderRadius: 20,
+                alignItems: 'center',
+                justifyContent: 'center',
                 width: Dimensions.get("window").width / 1.20,
                 //                borderTopColor: 'gray',
                 //                borderTopWidth: 1,
             }}>
 
-                <CheckBox
-                    disabled={false}
-                    value={isDone}
-                    onValueChange={(isDone) => setIsDone(!isDone)}
-                />
 
                 <Text > {moment(item.tarih).format("D MMMM, YYYY, dddd")} </Text>
 
-
-                <Text > {item.icerik} </Text>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <CheckBox
+                        disabled={false}
+                        value={isDone}
+                        onValueChange={(isDone) => setIsDone(!isDone)}
+                    />
+                    <Text > {item.icerik} </Text>
+                </View>
             </View>
 
         )
@@ -89,21 +111,21 @@ const Plans = (props) => {
                 JSON.stringify({
                     tarih: planDate,
                     icerik: planDetail,
-                    person_id: kullaniciId,
+                    person_id: 1,
                     durum: 0
                 })
-                )
-                    .then(function (response) {
-                        console.log(response.data.cevap);
-                        console.log("id: ", kullaniciId)
-                        setModalVisible(false)
-                        moment.locale('es'); // change the global locale to Spanish
-                        //     console.log(moment(planDate).format("D MMMM, YYYY, dddd")); // Domingo 15 Julio 2012 11:01
-                        setPlanDetail()
-                    })
-                    .catch(function (error) {
-                        //       console.log(error.response);
-                    });
+            )
+                .then(function (response) {
+                    console.log(response.data.cevap);
+                    console.log("id: ", kullaniciId)
+                    setModalVisible(false)
+                    moment.locale('es'); // change the global locale to Spanish
+                    //     console.log(moment(planDate).format("D MMMM, YYYY, dddd")); // Domingo 15 Julio 2012 11:01
+                    setPlanDetail()
+                })
+                .catch(function (error) {
+                    //       console.log(error.response);
+                });
 
         }
     }
@@ -113,8 +135,8 @@ const Plans = (props) => {
     };
 
     return (
-        <SafeAreaView>
-            <View>
+        <SafeAreaView style={{flex:1}}>
+            <View style={{flex:1}}>
                 <TouchableOpacity>
                     <Text>Plans</Text>
                     <Text>Kullanıcı Id: {kullaniciId}</Text>
@@ -190,8 +212,8 @@ const Plans = (props) => {
                     onMonthChange={(month) => { console.log('month changed', month) }}
                     onDayPress={(day) => { dayPressed(day) }}
                     markedDates={{
-                        '2020-05-25': { dots: [vacation, massage, workout], selected: true, selectedColor: 'red' },
-                        '2020-05-26': { dots: [massage, workout], disabled: true }
+                        calDates: { dots: [vacation, massage, workout], selected: true, selectedColor: 'red' },
+                        '2020-06-15': { dots: [massage, workout], disabled: true }
                     }}
                     markingType={'multi-dot'}
 
@@ -211,6 +233,7 @@ const Plans = (props) => {
                 >{planDetail}</Text>
 
                 <FlatList
+                    style={{ flex: 1 }}
                     data={allPlans}
                     renderItem={renderItem}
                     keyExtractor={(item, index) => index.toString()}

@@ -1,6 +1,5 @@
 import React,{useState} from 'react';
 import {StyleSheet,TextInput,Text,Button,View} from 'react-native';
-import { sub } from 'react-native-reanimated';
 
 const addPara   =  ({submitHandler}) =>   {
     const[text,setText]=useState('');

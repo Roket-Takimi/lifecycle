@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet,TouchableOpacity,Text} from 'react-native';
 
-const item = ({pitem,pressHandler})=>{
+const itemPara = ({pitem,pressHandler})=>{
 
     return(
     
@@ -23,4 +23,4 @@ const styles=StyleSheet.create({
         borderRadius:10
     }
 })
-export{item}
+export{itemPara}

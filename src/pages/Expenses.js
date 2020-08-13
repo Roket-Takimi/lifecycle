@@ -1,8 +1,7 @@
 import React from 'react'
 import { SafeAreaView, View, TouchableOpacity, Text, FlatList, Dimensions } from 'react-native'
 import addPara from '../components'
-import item from '../components'
-import SearchBar from '../components'
+import itemPara from '../components'
 const Expenses = () => {
 
     /*
@@ -18,8 +17,7 @@ const Expenses = () => {
         <SafeAreaView>
             <View>
                 <TouchableOpacity>
-                    <Text>Expenses</Text>
-                   
+                           
                 </TouchableOpacity>
             </View>
         </SafeAreaView>

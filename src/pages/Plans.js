@@ -1,33 +1,43 @@
 import React, { useState, useEffect } from 'react'
-import { SafeAreaView, View, TouchableOpacity, Text, Image, TextInput, FlatList, Dimensions, Pressable } from 'react-native'
+import {
+    SafeAreaView, View, TouchableOpacity, Text, Image, TextInput, FlatList, Dimensions,
+    Pressable, Alert
+} from 'react-native'
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 import Modal from 'react-native-modal';
 import axios from 'axios'
 import moment from 'moment'
 import CheckBox from '@react-native-community/checkbox';
+import AsyncStorage from '@react-native-community/async-storage';
 
 
 
-const Plans = () => {
+const Plans = (props) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [planDetail, setPlanDetail] = useState("")
     const [planDate, setPlanDate] = useState("")
     const [allPlans, setAllPlans] = useState([])
+    const [isDone, setIsDone] = useState(false)
     const deviceWidth = Dimensions.get("window").width;
     const deviceHeight = Dimensions.get("window").height;
     const vacation = { key: 'vacation', color: 'red', selectedDotColor: 'blue' };
     const massage = { key: 'massage', color: 'blue', selectedDotColor: 'blue' };
     const workout = { key: 'workout', color: 'green' };
-    const userId = 1
+    const userId = JSON.stringify(props.route.params.kullaniciId)
     const [toggleCheckBox, setToggleCheckBox] = useState(false)
+    const [kullaniciId, setKullaniciId] = useState(0)
 
     useEffect(() => {
-        fetchData()
+        fetchData();
+
     }, [])
 
 
     const fetchData = async () => {
-        axios.get(`https://draltaynihatacar.com/api/planlar.php?person_id=${userId}`)
+        var id = await AsyncStorage.getItem("@user_id")
+        console.log(id)
+        setKullaniciId(id)
+        await axios.get(`https://draltaynihatacar.com/api/planlar.php?person_id=${kullaniciId}`)
             .then(response => {
                 setAllPlans(response.data.aktiviteler)
                 console.log(response.data.aktiviteler)
@@ -52,8 +62,8 @@ const Plans = () => {
 
                 <CheckBox
                     disabled={false}
-                    value={toggleCheckBox}
-                    onValueChange={(newValue) => setToggleCheckBox(newValue)}
+                    value={isDone}
+                    onValueChange={(isDone) => setIsDone(!isDone)}
                 />
 
                 <Text > {moment(item.tarih).format("D MMMM, YYYY, dddd")} </Text>
@@ -65,7 +75,6 @@ const Plans = () => {
         )
     }
 
-
     function dayPressed(day) {
         setPlanDate(day.dateString)
         console.log('selected day', planDate)
@@ -73,19 +82,33 @@ const Plans = () => {
     }
 
     function addPlan() {
-        //push details to allplans
-        setModalVisible(false)
-        //  console.log('added?', planDate)
-        //  console.log(moment(planDate).calendar("D MMMM, YYYY"))
-        moment.locale('es'); // change the global locale to Spanish
-        console.log(moment(planDate).format("D MMMM, YYYY, dddd")); // Domingo 15 Julio 2012 11:01
+        if (planDetail == "") {
+            Alert.alert("Planı yazmayı unuttunuz.")
+        } else {
+            axios.post('https://draltaynihatacar.com/api/kodluyoruz_kullanici.php',
+                JSON.stringify({
+                    tarih: planDate,
+                    icerik: planDetail,
+                    person_id: kullaniciId,
+                    durum: 0
+                })
+                )
+                    .then(function (response) {
+                        console.log(response.data.cevap);
+                        console.log("id: ", kullaniciId)
+                        setModalVisible(false)
+                        moment.locale('es'); // change the global locale to Spanish
+                        //     console.log(moment(planDate).format("D MMMM, YYYY, dddd")); // Domingo 15 Julio 2012 11:01
+                        setPlanDetail()
+                    })
+                    .catch(function (error) {
+                        //       console.log(error.response);
+                    });
 
-        setPlanDetail()
-        setPlanText()
+        }
     }
 
     const setPlanText = text => {
-        console.log(text);
         setPlanDetail(text);
     };
 
@@ -94,6 +117,9 @@ const Plans = () => {
             <View>
                 <TouchableOpacity>
                     <Text>Plans</Text>
+                    <Text>Kullanıcı Id: {kullaniciId}</Text>
+                    <Text>User Id: {userId}</Text>
+
                 </TouchableOpacity>
                 <Modal
                     isVisible={modalVisible}

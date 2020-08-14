@@ -38,9 +38,10 @@ const Activities = ({navigation}) => {
                     justifyContent: 'space-between',
                     marginHorizontal: 5,
                     marginBottom: 10,
-                    backgroundColor: 'white',
+                    backgroundColor: '#448AFF',
                     padding: 10,
                     elevation: 4,
+                    borderRadius:20,
                 }}>
                       <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', }}>
                           <Text style={{fontSize: 18, fontWeight: 'bold', }}>{item.title}</Text>
@@ -52,7 +53,7 @@ const Activities = ({navigation}) => {
                       <View style={{alignItems: 'center', justifyContent: 'center', marginLeft: 10}}>
                         <FAB 
                             style={{
-                              backgroundColor: '#448AFF',
+                              backgroundColor: 'white',
                               justifyContent: 'center',
                               alignItems: 'center',
                               height: Dimensions.get('window').height / (10 / 0.55),

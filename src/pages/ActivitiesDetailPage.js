@@ -18,7 +18,7 @@ const ActivitiesDetailPage = ({ route, navigation }) => {
   return (
     <>
       <StatusBar barStyle="dark-content" backgroundColor="white" />
-      <Header titleText='Aktivite Detay' />
+      {/* <Header titleText='Aktivite Detay' /> */}
       <ScrollView>
         <View style={styless.container}>
           <View style={{backgroundColor:'#448AFF', borderRadius:30,
@@ -36,6 +36,12 @@ const ActivitiesDetailPage = ({ route, navigation }) => {
             />
           </View>
           <Text style={{ fontSize: 22, fontWeight: 'bold', margin: 10, }}>{activitie.title}</Text>
+          
+          <View style={{flexDirection: 'row'}}>
+            <Text style={{fontSize: 16, marginLeft: Dimensions.get('window').width / (10 / 6), fontWeight: 'bold' }}>Tarih:</Text>
+            <Text > {activitie.date}</Text>
+          </View>
+          
           <Text style={{ fontSize: 16, margin: 5, padding: 5, backgroundColor: '#448AFF', borderRadius: 5 , color:'white' }}>Detay: {activitie.content}</Text>
 
 

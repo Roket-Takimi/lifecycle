@@ -21,10 +21,10 @@ function Router() {
                 <Stack.Screen name={"Signup"} component={Signup} options={{ headerShown: false }} />
                 <Stack.Screen name={"Login"} component={Login} options={{ headerShown: false }} />
                 <Stack.Screen name={"Main"} component={Main} options={{ headerShown: false }} />
-                <Stack.Screen name={"Activities"} component={Activities} options={{ headerShown: false }} />
-                <Stack.Screen name={"AddActivities"} component={AddActivities} options={{ headerShown: false }} />
-                <Stack.Screen name={"ActivitiesDetailPage"} component={ActivitiesDetailPage} options={{ headerShown: false }}/>
-                <Stack.Screen name={"ActivitiesEditPage"} component={ActivitiesEditPage} options={{ headerShown: false }} />
+                <Stack.Screen name={"Activities"} component={Activities} options={{ headerShown: true, headerTitle: "Aktiviteler", headerTintColor: '#448AFF', headerTitleAlign: 'center' }} />
+                <Stack.Screen name={"AddActivities"} component={AddActivities} options={{ headerShown: true, headerTitle: "Aktivite Oluştur", headerTintColor: '#448AFF', headerTitleAlign: 'center' }} />
+                <Stack.Screen name={"ActivitiesDetailPage"} component={ActivitiesDetailPage} options={{ headerShown: true, headerTitle: "Aktivite Detay", headerTintColor: '#448AFF', headerTitleAlign: 'center' }}/>
+                <Stack.Screen name={"ActivitiesEditPage"} component={ActivitiesEditPage} options={{ headerShown: true, headerTitle: "Aktivitenizi Düzenleyin", headerTintColor: '#448AFF', headerTitleAlign: 'center' }} />
                 <Stack.Screen name={"Calories"} component={Calories} options={{ headerShown: false }} />
                 <Stack.Screen name={"CaloriesDetail"} component={CaloriesDetail} options={{ headerTitle: "Besin Değerleri" }} />
                 <Stack.Screen name={"Expenses"} component={Expenses} />

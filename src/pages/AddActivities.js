@@ -86,7 +86,8 @@ const AddActivities = ( {navigation} ) => {
     const onChange = (event, selectedDate) => {
       const currentDate = selectedDate || date;
       setShow(Platform.OS === 'ios');
-      setDate(currentDate);
+      setDate(currentDate.toLocaleDateString());
+      console.log(currentDate.toLocaleDateString());
     };
 
     const showMode = (currentMode) => {
@@ -106,7 +107,7 @@ const AddActivities = ( {navigation} ) => {
     return(
         <>
         <StatusBar barStyle="dark-content" backgroundColor= "white"/>
-        <Header titleText = 'Aktivite Oluştur' />            
+        {/* <Header titleText = 'Aktivite Oluştur' />             */}
         <View style={{flex:1}}>
 
         <BottomSheet
@@ -203,7 +204,7 @@ const AddActivities = ( {navigation} ) => {
                 icon = "check"
                 disabled = {title == '' ? true : false}
                 onPress = { () => {
-                    dispatch({type:"ADD", option:{title,content,image}}) 
+                    dispatch({type:"ADD", option:{title,content,image, date}}) 
                     navigation.goBack();
                 }}
             />

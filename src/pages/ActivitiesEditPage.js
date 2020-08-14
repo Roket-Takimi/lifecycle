@@ -22,7 +22,7 @@ const ActivitiesEditPage = ( {navigation, route} ) => {
     return (
         <>
         <StatusBar barStyle="dark-content" backgroundColor= "white"/>
-        <Header titleText = 'Aktivitenizi Düzenleyin' /> 
+        {/* <Header titleText = 'Aktivitenizi Düzenleyin' />  */}
         <View style={{flex:1, margin: 8}}>
 
             <TextInput

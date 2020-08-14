@@ -217,12 +217,12 @@ const styles = {
         calorieItem:{
             width: Dimensions.get('window').width * 0.7,
             height: Dimensions.get('window').height * 0.05,
-            backgroundColor:'#6f74dd',
+            backgroundColor:'#83b9ff',
             borderRadius: 30,
             margin: 10,
             alignSelf: 'center',
             justifyContent: 'center',
-            elevation: 2,
+            elevation: 8,
         },
         calorieItemTitle:{
             width: Dimensions.get('window').width * 0.9,

@@ -20,30 +20,38 @@ const ActivitiesDetailPage = ({ route, navigation }) => {
       <StatusBar barStyle="dark-content" backgroundColor="white" />
       {/* <Header titleText='Aktivite Detay' /> */}
       <ScrollView>
-        <View style={styless.container}>
-          <View style={{backgroundColor:'#448AFF', borderRadius:30,
-                width: Dimensions.get('window').width / 1.05,
-                height: Dimensions.get('window').height / 3,justifyContent:'center',
-                alignItems:'center'}}>
-            <Image
-              style={{
-                borderRadius: 20,
-                width: Dimensions.get('window').width / 1.1,
-                height: Dimensions.get('window').height / 2,
-                resizeMode: 'contain'
-              }}
-              source={{ uri: activitie.image }}
-            />
-          </View>
-          <Text style={{ fontSize: 22, fontWeight: 'bold', margin: 10, }}>{activitie.title}</Text>
-          
-          <View style={{flexDirection: 'row'}}>
-            <Text style={{fontSize: 16, marginLeft: Dimensions.get('window').width / (10 / 6), fontWeight: 'bold' }}>Tarih:</Text>
-            <Text > {activitie.date}</Text>
-          </View>
-          
-          <Text style={{ fontSize: 16, margin: 5, padding: 5, backgroundColor: '#448AFF', borderRadius: 5 , color:'white' }}>Detay: {activitie.content}</Text>
+          <View style={[styless.container]}>
 
+          <View style={{flexDirection: 'row', margin: 10}}>
+            <Text style={{fontSize: 16, marginLeft: Dimensions.get('window').width / (10 / 6), fontWeight: 'bold' }}>Tarih:</Text>
+            <Text style={{fontSize: 16, fontWeight: 'bold' }}> {activitie.date}</Text>
+          </View>
+
+          <View style={{backgroundColor:'#448AFF', borderRadius:30,
+              width: "90%", height: 250, justifyContent:'center',
+                alignItems:'center', padding: 15, marginTop: 15}}>
+
+              <Image
+                  style={{ width: "80%", height: "90%", resizeMode: 'contain', borderRadius: 20, }}
+                  resizeMode="contain"
+                  source={{uri: activitie.image}}
+              />
+
+          </View>
+
+          
+          
+          
+
+          <ScrollView style={{backgroundColor:'#448AFF', borderRadius:30,
+              width: "90%", height: 'auto', padding: 15, marginTop: 15}}>
+
+
+            <Text style={{ fontSize: 22, fontWeight: 'bold', margin: 10, textAlign: 'center' }}>{activitie.title}</Text>
+            <Text style={{ fontSize: 16, margin: 5, padding: 5, backgroundColor: '#448AFF', borderRadius: 5 , color:'white' }}>{activitie.content}</Text>
+            
+          </ScrollView>
+          
 
           <FAB
             style={styless.fab}
@@ -83,7 +91,7 @@ const styless = StyleSheet.create({
   },
   fab: {
     backgroundColor: '#448AFF',
-    position: 'absolute',
+    // position: 'absolute',
     margin: 20,
     marginTop: 40,
     right: 0,

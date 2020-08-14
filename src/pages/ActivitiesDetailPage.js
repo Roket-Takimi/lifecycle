@@ -36,7 +36,7 @@ const ActivitiesDetailPage = ({ route, navigation }) => {
             />
           </View>
           <Text style={{ fontSize: 22, fontWeight: 'bold', margin: 10, }}>{activitie.title}</Text>
-          <Text style={{ fontSize: 14, margin: 5, padding: 5, backgroundColor: '#448AFF', borderRadius: 5 }}>Detay: {activitie.content}</Text>
+          <Text style={{ fontSize: 16, margin: 5, padding: 5, backgroundColor: '#448AFF', borderRadius: 5 , color:'white' }}>Detay: {activitie.content}</Text>
 
 
           <FAB

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { StyleSheet, View, TouchableOpacity, StatusBar, ImageBackground, Button, Platform} from 'react-native'
+import { StyleSheet, View, TouchableOpacity, StatusBar, ImageBackground, Platform, Dimensions } from 'react-native'
 import {ActivitiesContext} from '../context/ActivitiesContext';
 import {useTheme} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -10,7 +10,7 @@ import Animated from 'react-native-reanimated';
 import ImagePicker from 'react-native-image-crop-picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
-import { Text, IconButton, TextInput, FAB } from 'react-native-paper';
+import { Text, IconButton, TextInput, FAB, Button } from 'react-native-paper';
 import { Header } from '../components/Header';
 
 
@@ -184,8 +184,25 @@ const AddActivities = ( {navigation} ) => {
                 style = {styles.text}
             />
 
-     
-            <Button  onPress={showDatepicker} title="Tarih" />
+
+            <Button 
+              icon={require('../assets/calendar.png')}
+              mode="outlined" 
+              color='#448AFF'
+              uppercase={false}
+              onPress={showDatepicker} 
+            >
+              Tarih Seçiniz
+            </Button>
+
+      
+            {/* <Button 
+              style={{
+                width: Dimensions.get('window').width * 0.4,
+                height: Dimensions.get('window').height * 0.05,
+              }} 
+              onPress={showDatepicker} 
+              title="Tarih" /> */}
             {/* <Button onPress={showTimepicker} title="Show time picker!" /> */}
             {show && (
                 <DateTimePicker

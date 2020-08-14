@@ -39,10 +39,6 @@ const ActivitiesDetailPage = ({ route, navigation }) => {
 
           </View>
 
-          
-          
-          
-
           <ScrollView style={{backgroundColor:'#448AFF', borderRadius:30,
               width: "90%", height: 'auto', padding: 15, marginTop: 15}}>
 

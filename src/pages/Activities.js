@@ -41,10 +41,10 @@ const Activities = ({navigation}) => {
                     backgroundColor: '#448AFF',
                     padding: 10,
                     elevation: 4,
-                    borderRadius:20,
+                    borderRadius:30,
                 }}>
                       <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start', }}>
-                          <Text style={{fontSize: 18, fontWeight: 'bold', }}>{item.title}</Text>
+                          <Text style={{fontSize: 18, fontWeight: 'bold', color:'white' }}>{item.title}</Text>
                           {/* <Text style={{fontSize: 22}}>{item.image}</Text> */}
                           {/* <Text style={{fontSize: 14}}>{item.content}</Text> */}
                       

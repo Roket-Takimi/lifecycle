@@ -59,7 +59,7 @@ const Login = (props) => {
                     let id = response.data.kullanici.id
                     saveAsync(mail,id)
                     //setPersonId(response.data.kullanici.id)
-                    props.navigation.navigate("Main")
+                    props.navigation.navigate("HomeScreen")
                     //AsyncStorage.setItem("@user_id",personId)
                     //AsyncStorage.setItem('@user_mail', mail)
                    

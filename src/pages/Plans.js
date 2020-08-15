@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import {
     SafeAreaView, View, TouchableOpacity, Text, Image, TextInput, FlatList, Dimensions,
     Pressable, Alert
@@ -11,9 +11,10 @@ import CheckBox from '@react-native-community/checkbox';
 import AsyncStorage from '@react-native-community/async-storage';
 import styles from './styles'
 import { LocaleConfig } from 'react-native-calendars';
+import Context from '../context/store'
 
 
-const Plans = (props) => {
+const Plans = ({navigation}) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [planDetail, setPlanDetail] = useState("")
     const [planDate, setPlanDate] = useState("")
@@ -25,8 +26,9 @@ const Plans = (props) => {
     const vacation = { key: 'vacation', color: 'red', selectedDotColor: 'blue' };
     const massage = { key: 'massage', color: 'blue', selectedDotColor: 'blue' };
     const workout = { key: 'workout', color: 'green' };
-    const userId = props.route.params.id
+    //const userId = route.params.id
         const [loading, setLoading] = useState(false)
+        const { state, dispatch } = useContext(Context)
 
     //   const [toggleCheckBox, setToggleCheckBox] = useState(false)
 
@@ -40,8 +42,9 @@ const Plans = (props) => {
 
     const fetchData = async () => {
         setLoading(true)
+        console.log("idcheck: ", state.userId)
 
-        await axios.get(`https://draltaynihatacar.com/api/planlar.php?person_id=${userId}`)
+        await axios.get(`https://draltaynihatacar.com/api/planlar.php?person_id=${state.userId}`)
             .then(response => {
                 setAllPlans(response.data.aktiviteler)
                 console.log(response.data.aktiviteler)
@@ -278,10 +281,14 @@ return (
             >{planDetail}</Text>
 
             <FlatList
+
                 style={{ flex: 1 }}
                 data={allPlans}
                 renderItem={renderItem}
                 keyExtractor={(item, index) => index.toString()}
+                refreshing={loading}
+                onRefresh={fetchData}
+
             />
         </View>
     </SafeAreaView>

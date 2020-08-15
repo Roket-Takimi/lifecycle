@@ -81,12 +81,12 @@ import {MyButton} from '../components/'
 import AsyncStorage from '@react-native-community/async-storage';
 
 const Main = (props) => {
-    const goCalories = () => props.navigation.navigate("Calories")
-    const goActivities = () => props.navigation.navigate("Activities")
+    const goCalories = () => props.navigation.navigate("CaloriesPages")
+    const goActivities = () => props.navigation.navigate("ActivitiesPages")
 
     const [kullaniciId,setKullaniciId] = useState(0)
-    const goPlans = () => props.navigation.navigate("Plans", {id: kullaniciId})
-    const goExpenses = () => props.navigation.navigate("Expenses")
+    const goPlans = () => props.navigation.navigate("PlansPages", {id: kullaniciId})
+    const goExpenses = () => props.navigation.navigate("ExpensesPages")
     const logOut = () => {
         AsyncStorage.removeItem("@user_mail");
         AsyncStorage.removeItem("@user_id");
@@ -98,7 +98,7 @@ const Main = (props) => {
 
     const getPersonId =async () => {
         var id =await AsyncStorage.getItem("@user_id")
-        console.log(id)
+        console.log("id ", id)
         setKullaniciId(id)
     }
     

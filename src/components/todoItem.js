@@ -7,7 +7,7 @@ const TodoItem=({item})=>{
 
     return(
 
-        <TouchableOpacity onPress={}>
+        <TouchableOpacity onPress={props.onPress}>
             <Text style={styles.item}>{item.text}</Text>
         </TouchableOpacity>
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import { StyleSheet,Text,TouchableOpacity } from 'react-native';
 
-const TodoItem=({item})=>{
+const TodoItem=({item,pressHandler})=>{
 
 
 
     return(
 
-        <TouchableOpacity onPress={props.onPress}>
+        <TouchableOpacity onPress={()=>pressHandler(item.key)}>
             <Text style={styles.item}>{item.text}</Text>
         </TouchableOpacity>
 

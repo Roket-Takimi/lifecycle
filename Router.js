@@ -36,14 +36,14 @@ function HomeScreen() {
     }}>
   <Tab.Screen name="CaloriesPages" component={CaloriesPages} options={{
                 tabBarIcon: ({ focused, size, color }) => (focused ?
-                    <Icon name="food-apple" size={20} />
+                    <Icon name="food-apple" size={20} color="#2980b9" />
                     :
                     <Icon name="food-apple-outline" size={20} />
                 ),
             }} />
              <Tab.Screen name="PlansPages" component={PlansPages} options={{
                 tabBarIcon: ({ focused, size, color }) => (focused ?
-                    <Icon name="calendar" size={20}  />
+                    <Icon name="calendar" size={20} color="#2980b9"  />
                     :
                     <Icon name="calendar-blank-outline" size={20}  />
                 ),
@@ -52,21 +52,21 @@ function HomeScreen() {
           
             <Tab.Screen name="Main" component={Main} options={{
                 tabBarIcon: ({ focused, size, color }) => (focused ?
-                    <Icon name="bicycle" size={30}  />
+                    <Icon name="bicycle" size={35} color="#2980b9"  />
                     :
-                    <Icon name="bicycle" size={28}  />
+                    <Icon name="bicycle" size={30}  />
                 ),
             }} />
              <Tab.Screen name="ActivitiesPages" component={ActivitiesPages} options={{
                 tabBarIcon: ({ focused, size, color }) => (focused ?
-                    <Icon name="yoga" size={20} />
+                    <Icon name="yoga" size={20} color="#2980b9" />
                     :
                     <Icon name="run" size={20}  />
                 ),
             }} />
             <Tab.Screen name="ExpensesPages" component={ExpensesPages} options={{
                 tabBarIcon: ({ focused, size, color }) => (focused ?
-                    <Icon name="credit-card" size={20}  />
+                    <Icon name="credit-card" size={20} color="#2980b9"  />
                     :
                     <Icon name="cash" size={20} />
                 ),

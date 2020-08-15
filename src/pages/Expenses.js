@@ -1,27 +1,44 @@
-import React from 'react'
-import { SafeAreaView, View, TouchableOpacity, Text, FlatList, Dimensions } from 'react-native'
-import addPara from '../components'
-import itemPara from '../components'
+import React, { useState } from 'react';
+import { SafeAreaView, View,
+     TouchableOpacity, Text,
+      FlatList, Dimensions,
+    StyleSheet } from 'react-native';
+
+import TodoItem from '../components'
+
 const Expenses = () => {
 
-    /*
-        GÜN GÜN TOPLAM HARCAMA LİSTESİ
-        GRAFİK İLE GÖSTEREBİLİRİZ
-        TIKLAYINCA DETAY SAYFASINA GİDER
-
-
-    */
-
-
-    return(
-        <SafeAreaView>
-            <View>
-                <TouchableOpacity>
-                           
-                </TouchableOpacity>
+const[todos,setTodos]=useState([
+    {text:'50 tl harcadınız.',key:'1'},
+    {text:'40 tl harcadınız.',key:'2'},
+    {text:'15 tl harcadınız.',key:'3'}
+]);
+return(
+    <View style={styles.container}>
+        <View style={styles.content}>
+            <View style={styles.list}>
+                <FlatList
+                data={todos}
+                renderItem={({item})=>(
+                    <TodoItem item={item}/>
+                )}
+                />
             </View>
-        </SafeAreaView>
-    )
+        </View>
+    </View>
+)
 }
 
 export {Expenses}
+const styles= StyleSheet.create({
+    container:{
+        flex:1,
+        backgroundColor:'#fff',
+    },
+    content:{
+        padding:40,
+    },
+    list:{
+        marginTop:20,
+    }
+})

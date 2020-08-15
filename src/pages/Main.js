@@ -149,13 +149,7 @@ const Main = (props) => {
                 press={logOut}
 
                 />
-                 <MyButton
-                text={kullaniciId}
-                stil={styles.main.menuCikisYapColumn}
-                stiltxt={styles.main.menuText}
-                press={logOut}
-
-                />
+             
                 
             </View>
         </View>

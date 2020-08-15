@@ -14,7 +14,7 @@ import { LocaleConfig } from 'react-native-calendars';
 import Context from '../context/store'
 
 
-const Plans = (props) => {
+const Plansyedek = (props) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [planDetail, setPlanDetail] = useState("")
     const [planDate, setPlanDate] = useState("")
@@ -26,7 +26,7 @@ const Plans = (props) => {
     const vacation = { key: 'vacation', color: 'red', selectedDotColor: 'blue' };
     const massage = { key: 'massage', color: 'blue', selectedDotColor: 'blue' };
     const workout = { key: 'workout', color: 'green' };
-    const userId = props.route.params.id
+    const userId = 15
         const [loading, setLoading] = useState(false)
         const { state, dispatch } = useContext(Context)
 
@@ -295,4 +295,4 @@ return (
 )
 }
 
-export { Plans }
+export { Plansyedek }

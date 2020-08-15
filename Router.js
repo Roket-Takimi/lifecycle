@@ -2,8 +2,8 @@ import 'react-native-gesture-handler';
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, HeaderTitle } from '@react-navigation/stack';
-import { Activities, AddActivities, ActivitiesDetailPage, ActivitiesEditPage, Expenses, Login, Main, Plans, Signup, LoginControl, CaloriesDetail } from './src/pages';
-import { ExpensesDetail, PlansDetail } from './src/pages/DETAILS'
+import { Activities, AddActivities, Plansyedek, ActivitiesDetailPage, ActivitiesEditPage, Expenses, Login, Main, Plans, Signup, LoginControl, CaloriesDetail } from './src/pages';
+import { ExpensesDetail, PlansDetail,  } from './src/pages/DETAILS'
 import { Calories } from './src/pages/Calories'
 import Provider from './src/context/Provider'
 import { ActivitiesProvider } from './src/context/ActivitiesContext'
@@ -107,7 +107,9 @@ function ExpensesPages() {
 function PlansPages() {
     return (
         <Stack.Navigator>
-            <Stack.Screen name="Plans" component={Plans} options={{ headerShown: false }} 
+            <Stack.Screen name="Plansyedek" component={Plansyedek} options={{ headerShown: false }} 
+             initialParams={{ id: 15 }}/>
+             <Stack.Screen name="Plans" component={Plans} options={{ headerShown: false }} 
              initialParams={{ id: 15 }}/>
             <Stack.Screen name="PlansDetail" component={PlansDetail} options={{ headerShown: false }} />
         </Stack.Navigator>
